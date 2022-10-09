@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:49:54 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:08:39 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:34:14 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	display(t_info info)
 		printf("\n");
 		y++;
 	}
-	//printf("intersec: (%f, %f), distance: %f, direction: %d, img_col: %ld\n", intersec.wall.x, intersec.wall.y, intersec.distance, intersec.wall_direction, intersec.img_col);
+	printf("intersec: (%f, %f), distance: %f, direction: %d, img_col: %ld\n", intersec.wall.x, intersec.wall.y, intersec.distance, intersec.wall_direction, intersec.img_col);
 }
 
 int	main(int argc, char *argv[])
@@ -70,7 +70,8 @@ int	main(int argc, char *argv[])
 		printf("can't set!\n");
 		return (0);
 	}
-	display(info);
+	check_intersection(&info, convert_to_radian(info.direction));
+	//display(info);
 	//init_setup(&info);
 	//mlx_loop(info.mlx);
 	return (0);

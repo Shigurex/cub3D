@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:07:33 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:30:14 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,23 +120,23 @@ void	input_data(t_intersection *intersec, double angle, int direction, t_pos pos
 	if (direction == HORIZONTAL && 0 <= angle && angle < M_PI)
 	{
 		intersec->wall_direction = NORTH;
-		intersec->img_col = (floor(pos.x + 1) - pos.x) * BL;
+		intersec->img_col = (floor(pos.x + 1) - pos.x) * (BL - 1);
 	}
 	else if (direction == HORIZONTAL && M_PI <= angle && angle < 2 * M_PI)
 	{
 		intersec->wall_direction = SOUTH;
-		intersec->img_col = (pos.x - floor(pos.x)) * BL;
+		intersec->img_col = (pos.x - floor(pos.x)) * (BL - 1);
 	}
 	else if (direction == VERTICAL && ((0 <= angle && angle < M_PI_2)
 			|| (3 * M_PI_2 <= angle && angle < 2 * M_PI)))
 	{
 		intersec->wall_direction = WEST;
-		intersec->img_col = (pos.y - floor(pos.y)) * BL;
+		intersec->img_col = (pos.y - floor(pos.y)) * (BL - 1);
 	}
 	else
 	{
 		intersec->wall_direction = EAST;
-		intersec->img_col = (floor(pos.y + 1) - pos.y) * BL;
+		intersec->img_col = (floor(pos.y + 1) - pos.y) * (BL - 1);
 	}
 }
 

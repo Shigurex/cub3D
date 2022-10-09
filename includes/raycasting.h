@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:23:49 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:07:27 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:50:39 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include	<stdbool.h>
 # include	<stdio.h>
 # include	"structure.h"
-# include	"map.h"
+# include	"global.h"
 
 t_intersection	check_intersection(t_info *info, double angle);
 double			convert_to_radian(double degree);

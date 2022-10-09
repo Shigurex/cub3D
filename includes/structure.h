@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:43:22 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 19:15:30 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 21:31:50 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@
 # define BL 30
 # define DIS_X 1200
 # define DIS_Y 900
+# define SIGHT 60
 
 # define MINI_MAP 300
 # define MINI_MAP_BL 30
+
+# define FREE_CONTENT (void *)0xff
 
 typedef enum e_dimention
 {
@@ -39,7 +42,7 @@ typedef enum e_direction
 	NORTH,
 	EAST,
 	SOUTH,
-	WEST
+	WEST,
 }	t_direction;
 
 typedef enum e_block
@@ -48,7 +51,6 @@ typedef enum e_block
 	SPACE,
 	NONE,
 	MAP_ERROR,
-	FREE_MAP = 0xff
 }	t_block;
 
 typedef struct s_img {

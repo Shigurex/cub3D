@@ -11,8 +11,11 @@ int map(size_t x, size_t y, char *file)
 
 	if (file)
 		cube_map = mk_map(file, &X, &Y);
-	else if (file == (char *)FREE_MAP)
+	else if (file == FREE_CONTENT)
+	{
 		free(cube_map);
+		return (MAP_ERROR);
+	}
 	if (x >= X || y >= Y || !cube_map)
 		return (MAP_ERROR);
 	return (cube_map[(y * X) + x]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:45:04 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 19:00:04 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:50:48 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include	"../mlx-linux/mlx.h"
 # include	"structure.h"
 # include	"setting.h"
-# include	"map.h"
+# include	"global.h"
 # include	"raycasting.h"
 
 # define ON_KEYDOWN 2

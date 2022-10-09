@@ -14,8 +14,8 @@ void    set_human(t_info *i, char *mapf)
 		{
 			if (*mapf == 'N' || *mapf == 'S' || *mapf == 'E' || *mapf == 'W')
             {
-                i->player.x = (double)x;
-                i->player.y = (double)y;
+                i->player.x = (double)x + 0.5;
+                i->player.y = (double)y + 0.5;
                 i->direction = (double)((*mapf == 'E') * 0 \
                 + (*mapf == 'S') * 90 + (*mapf == 'W') * 180 \
                 + (*mapf == 'N') * 270);
