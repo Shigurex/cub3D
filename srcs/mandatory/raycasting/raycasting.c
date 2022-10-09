@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 18:16:17 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:27:50 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ t_pos	check_vertical_intersection(t_info *info, double angle)
 	return (ray);
 }
 
-t_pos	check_intersection(t_info *info, double angle)
+t_intersection	check_intersection(t_info *info, double angle)
 {
 	t_intersection	intersec;
 	t_pos			hori_intersec;
@@ -125,9 +125,12 @@ t_pos	check_intersection(t_info *info, double angle)
 		< fabs(vert_intersec.x - info->player.x))
 	{
 		intersec.distance = fabs(hori_intersec.x - info->player.x;
+		intersec.intersection = hori_intersec;
+		
 	}
 	else
 	{
 		intersec.distance = fabs(vert_intersec.x - info->player.x;
+		intersec.intersection = vert_intersec;
 	}
 }

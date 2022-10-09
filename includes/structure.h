@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:43:22 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 18:15:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:23:59 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_info
 	double	direction;
 }	t_info;
 
-typedef struct intersection
+typedef struct s_intersection
 {
 	t_pos		intersection;
 	t_direction	wall;
