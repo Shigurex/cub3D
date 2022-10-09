@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:23:49 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 10:00:26 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:34:28 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include	"structure.h"
 # include	"map.h"
 
-double	get_radian_from_degree(double degree);
+double	convert_to_radian(double degree);
 t_pos	check_intersection(t_info *info, double angle);
 
 #endif

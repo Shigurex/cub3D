@@ -7,7 +7,8 @@ SRCS_NAME = mandatory/main/main.c \
 	mandatory/raycasting/calculate.c \
 	mandatory/raycasting/raycasting.c \
 	mandatory/setting/mk_map.c \
-	mandatory/setting/setting.c
+	mandatory/setting/setting.c \
+	mandatory/setting/set_human.c
 SRCDIR = srcs
 OBJDIR = objs
 SRCS = $(addprefix $(SRCDIR)/, $(SRCS_NAME))

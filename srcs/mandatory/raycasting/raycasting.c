@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 16:01:01 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:16:17 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,38 +114,20 @@ t_pos	check_vertical_intersection(t_info *info, double angle)
 	return (ray);
 }
 
-double	calculate_distance(t_pos player, t_pos wall)
-{
-	double	distance;
-
-	distance = sqrt(pow(wall.x - player.x, 2) + pow(wall.y - player.y, 2));
-	return (distance);
-}
-
 t_pos	check_intersection(t_info *info, double angle)
 {
-	t_pos	horizontal_intersection;
-	t_pos	vertical_intersection;
+	t_intersection	intersec;
+	t_pos			hori_intersec;
+	t_pos			vert_intersec;
 
-	horizontal_intersection = check_horizontal_intersection(info, angle);
-	vertical_intersection = check_vertical_intersection(info, angle);
-	printf("horizontal: (x, y) = (%f, %f)\n", horizontal_intersection.x, horizontal_intersection.y);
-	printf("vertical: (x, y) = (%f, %f)\n", vertical_intersection.x, vertical_intersection.y);
-	if (fabs(horizontal_intersection.x - info->player.x)
-		< fabs(vertical_intersection.x - info->player.x))
-		return (horizontal_intersection);
+	hori_intersec = check_horizontal_intersection(info, angle);
+	if (fabs(hori_intersec.x - info->player.x)
+		< fabs(vert_intersec.x - info->player.x))
+	{
+		intersec.distance = fabs(hori_intersec.x - info->player.x;
+	}
 	else
-		return (vertical_intersection);
+	{
+		intersec.distance = fabs(vert_intersec.x - info->player.x;
+	}
 }
-
-//int	main(void)
-//{
-//	t_info	info;
-
-//	info.player.x = 4.3;
-//	info.player.y = 4.3;
-//	//check_intersection(&info, get_radian_from_degree(145));
-//	check_horizontal_intersection(&info, get_radian_from_degree(30));
-//	//check_vertical_intersection(&info, get_radian_from_degree(40));
-//	return (0);
-//}

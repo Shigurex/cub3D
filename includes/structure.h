@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:43:22 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 09:46:26 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:15:07 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,18 @@
 # define S 115
 # define D 100
 
-typedef enum e_direction
+typedef enum e_dimention
 {
 	VERTICAL,
 	HORIZONTAL
+}	t_dimention;
+
+typedef enum e_direction
+{
+	NORTH,
+	EAST,
+	SOUTH,
+	WEST
 }	t_direction;
 
 typedef enum e_block
@@ -58,5 +66,12 @@ typedef struct s_info
 	t_pos	player;
 	double	direction;
 }	t_info;
+
+typedef struct intersection
+{
+	t_pos		intersection;
+	t_direction	wall;
+	double		distance;
+}	t_intersection;
 
 #endif
