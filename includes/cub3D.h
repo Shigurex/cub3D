@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:45:04 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:50:48 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 00:14:21 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include	"setting.h"
 # include	"global.h"
 # include	"raycasting.h"
+# include	"plot.h"
 
 # define ON_KEYDOWN 2
 # define ON_DESTROY 17

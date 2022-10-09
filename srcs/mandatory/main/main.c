@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:49:54 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:34:14 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 03:01:42 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,8 @@ void	init_setup(t_info *info)
 	mlx_hook(info->win, ON_DESTROY, 1L << 0, close_window, info);
 	mlx_hook(info->win, ON_KEYDOWN, 1L << 0, handle_key_input, info);
 	info->img.address = mlx_new_image(info->mlx, DIS_X, DIS_Y);
-}
-
-void	display(t_info info)
-{
-	size_t x = 0;
-	size_t y = 0;
-	t_intersection intersec = check_intersection(&info, convert_to_radian(info.direction));
-	y = 0;
-	while (1)
-	{
-		x = 0;
-		if (map(x, y, NULL) == MAP_ERROR)
-			break;
-		while (1)
-		{
-			int i;
-			i = map(x, y, NULL);
-			if (x == (size_t)(info.player.x) && y == (size_t)(info.player.y))
-				printf("x");
-			else if (x == (size_t)(intersec.wall.x) && y == (size_t)(intersec.wall.y))
-				printf("o");
-			else if (i == BLOCK)
-				printf("#");
-			else if (i == SPACE)
-				printf(" ");
-			else if (i == NONE)
-				printf("+");
-			else 
-				break;
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-	printf("intersec: (%f, %f), distance: %f, direction: %d, img_col: %ld\n", intersec.wall.x, intersec.wall.y, intersec.distance, intersec.wall_direction, intersec.img_col);
+	info->img.data = mlx_get_data_addr(info->img.address, \
+		&info->img.bpp, &info->img.size_l, &info->img.endian);
 }
 
 int	main(int argc, char *argv[])
@@ -70,9 +37,8 @@ int	main(int argc, char *argv[])
 		printf("can't set!\n");
 		return (0);
 	}
-	check_intersection(&info, convert_to_radian(info.direction));
-	//display(info);
-	//init_setup(&info);
-	//mlx_loop(info.mlx);
+	init_setup(&info);
+	plot_screen(&info);
+	mlx_loop(info.mlx);
 	return (0);
 }

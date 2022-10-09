@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:09:41 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 17:17:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 03:32:24 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,53 @@ int	close_window(t_info *info)
 void	move_view(t_info *info, int keycode)
 {
 	if (keycode == LEFT)
-		info->direction -= 10;
+		info->direction -= 3;
 	else if (keycode == RIGHT)
-		info->direction += 10;
+		info->direction += 3;
+	plot_screen(info);
+}
+
+t_pos	calculate_moved_place(t_info *info, int keycode)
+{
+	t_pos	position;
+	double	angle;
+
+	angle = convert_to_radian(info->direction);
+	if (keycode == W)
+	{
+		position.x = info->player.x + 0.1 * cos(angle);
+		position.y = info->player.y + 0.1 * sin(angle);
+	}
+	else if (keycode == S)
+	{
+		position.x = info->player.x - 0.1 * cos(angle);
+		position.y = info->player.y - 0.1 * sin(angle);
+	}
+	else if (keycode == A)
+	{
+		position.x = info->player.x + 0.1 * cos(angle - 90);
+		position.y = info->player.y + 0.1 * sin(angle - 90);
+	}
+	else
+	{
+		position.x = info->player.x - 0.1 * cos(angle - 90);
+		position.y = info->player.y - 0.1 * sin(angle - 90);
+	}
+	return (position);
 }
 
 void	move_direction(t_info *info, int keycode)
 {
-	if (keycode == W)
-		info->player.y -= 0.1;
-	else if (keycode == A)
-		info->player.x -= 0.1;
-	else if (keycode == S)
-		info->player.y += 0.1;
-	else if (keycode == D)
-		info->player.x += 0.1;
+	t_pos	position;
+	int		block;
+
+	position = calculate_moved_place(info, keycode);
+	block = map(position.x, position.y, NULL);
+	if (block == BLOCK || block == NONE || block == MAP_ERROR)
+		return ;
+	info->player.x = position.x;
+	info->player.y = position.y;
+	plot_screen(info);
 }
 
 int	handle_key_input(int keycode, t_info *info)

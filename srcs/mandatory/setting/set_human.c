@@ -1,7 +1,18 @@
-#include	"../../../includes/cub3D.h"
+/* ************************************************************************** */
+/*                                                                             */
+/*                                                        :::        ::::::::   */
+/*   set_human.c                                                                      :+:      :+:      :+:   */
+/*                                                     +:+ +:+          +:+       */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+         +#+      */
+/*                                                +#+#+#+#+#+   +#+          */
+/*   Created: 2022/10/10 03:40:43 by yahokari           #+#   #+#              */
+/*   Updated: 2022/10/10 03:40:47 by yahokari          ###   ########.fr     */
+/*                                                                             */
+/* ************************************************************************** */
+
 #include	"../../../includes/setting.h"
 
-void    set_human(t_info *i, char *mapf)
+void       set_human(t_info *i, char *mapf)
 {
 	size_t x;
 	size_t y;

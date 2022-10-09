@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   global.h                                           :+:      :+:    :+:   */
+/*   pixel_put.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 21:25:48 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:42:37 by yahokari         ###   ########.fr       */
+/*   Created: 2022/10/10 00:06:31 by yahokari          #+#    #+#             */
+/*   Updated: 2022/10/10 03:41:50 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GLOBAL_H
-# define GLOBAL_H
+#include	"../../../includes/plot.h"
 
-# include	<stdlib.h>
-# include	<stdio.h>
-# include	<fcntl.h>
-# include	"../libft/libft.h"
-# include	"structure.h"
-# include	"structure.h"
-# include	"cub3D.h"
+void	my_pixel_put(t_info *info, int x, int y, unsigned int color)
+{
+	void	*dst;
 
-# define BITS_PER_PIXEL 0
-# define SIZE_LINE 1
-# define ENDIAN 2
-
-int	map(size_t, size_t, char *);
-
-#endif
+	dst = info->img.data + (y * info->img.size_l + x * (info->img.bpp / 8));
+	*(unsigned int *)dst = color;
+}

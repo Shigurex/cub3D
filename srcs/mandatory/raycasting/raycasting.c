@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 20:30:14 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 02:47:00 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ t_pos	check_vertical_intersection(t_info *info, double angle)
 
 void	input_data(t_intersection *intersec, double angle, int direction, t_pos pos)
 {
-	//printf("%f, %f\n", pos.x);
 	if (direction == HORIZONTAL && 0 <= angle && angle < M_PI)
 	{
 		intersec->wall_direction = NORTH;

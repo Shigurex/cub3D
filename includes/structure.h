@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   structure.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:43:22 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 21:31:50 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 00:20:07 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURE_H
 # define STRUCTURE_H
+
+# include	"stdio.h"
 
 # define ESC 65307
 # define LEFT 65361
