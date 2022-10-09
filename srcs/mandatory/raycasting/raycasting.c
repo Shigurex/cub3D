@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 02:47:00 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 03:46:42 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_pos	check_horizontal_intersection(t_info *info, double angle)
 	while (true)
 	{
 		block = check_block(ray, angle, HORIZONTAL);
-		if (block == BLOCK || block == NONE || block == MAP_ERROR) //function
+		if (block == BLOCK || block == NONE || block == MAP_ERROR)
 			break ;
 		ray.x = ray.x + sign * 1 / tan(angle);
 		ray.y = ray.y + sign;

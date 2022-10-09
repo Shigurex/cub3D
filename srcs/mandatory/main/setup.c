@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:09:41 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:32:24 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 03:45:52 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	move_view(t_info *info, int keycode)
 	plot_screen(info);
 }
 
-t_pos	calculate_moved_place(t_info *info, int keycode)
+static t_pos	calculate_moved_place(t_info *info, int keycode)
 {
 	t_pos	position;
 	double	angle;

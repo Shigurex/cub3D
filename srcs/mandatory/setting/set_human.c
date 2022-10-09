@@ -12,7 +12,7 @@
 
 #include	"../../../includes/setting.h"
 
-void       set_human(t_info *i, char *mapf)
+void    set_human(t_info *i, char *mapf)
 {
 	size_t x;
 	size_t y;
