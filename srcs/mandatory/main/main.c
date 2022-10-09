@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:49:54 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 17:34:41 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:08:39 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	display(t_info info)
 {
 	size_t x = 0;
 	size_t y = 0;
-	t_pos pos = check_intersection(&info, convert_to_radian(info.direction));
+	t_intersection intersec = check_intersection(&info, convert_to_radian(info.direction));
 	y = 0;
 	while (1)
 	{
@@ -38,7 +38,7 @@ void	display(t_info info)
 			i = map(x, y, NULL);
 			if (x == (size_t)(info.player.x) && y == (size_t)(info.player.y))
 				printf("x");
-			else if (x == (size_t)(pos.x) && y == (size_t)(pos.y))
+			else if (x == (size_t)(intersec.wall.x) && y == (size_t)(intersec.wall.y))
 				printf("o");
 			else if (i == BLOCK)
 				printf("#");
@@ -53,7 +53,7 @@ void	display(t_info info)
 		printf("\n");
 		y++;
 	}
-	printf("(%f, %f) -> (%ld, %ld)\n", pos.x, pos.y, (size_t)pos.x, (size_t)pos.y);
+	//printf("intersec: (%f, %f), distance: %f, direction: %d, img_col: %ld\n", intersec.wall.x, intersec.wall.y, intersec.distance, intersec.wall_direction, intersec.img_col);
 }
 
 int	main(int argc, char *argv[])
@@ -71,7 +71,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	display(info);
-	init_setup(&info);
-	mlx_loop(info.mlx);
+	//init_setup(&info);
+	//mlx_loop(info.mlx);
 	return (0);
 }

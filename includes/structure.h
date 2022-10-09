@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:43:22 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 18:23:59 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 19:15:30 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 # define A 97
 # define S 115
 # define D 100
+
+# define BL 30
+# define DIS_X 1200
+# define DIS_Y 900
+
+# define MINI_MAP 300
+# define MINI_MAP_BL 30
 
 typedef enum e_dimention
 {
@@ -69,8 +76,9 @@ typedef struct s_info
 
 typedef struct s_intersection
 {
-	t_pos		intersection;
-	t_direction	wall;
+	t_pos		wall;
+	size_t		img_col;
+	t_direction	wall_direction;
 	double		distance;
 }	t_intersection;
 

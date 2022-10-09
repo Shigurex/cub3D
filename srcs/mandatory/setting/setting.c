@@ -12,9 +12,6 @@ int setting(char *filename, t_info *i)
 	if (!file || map(0, 0, file) == MAP_ERROR)
 		return (1);
 	set_human(i, skip_map(file));
-TESTd(i->player.x)
-TESTd(i->player.y)
-TESTd(i->direction)
 	return (0);
 }
 

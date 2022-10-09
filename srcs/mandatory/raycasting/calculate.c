@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:31:59 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/09 18:28:23 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:08:15 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,15 @@ double	convert_to_radian(double degree)
 		degree = fmod(degree, 360);
 	radian = degree / 360 * 2 * M_PI;
 	return (radian);
+}
+
+double	calculate_distance(t_info *info, t_pos wall)
+{
+	double	distance;
+	double	direction_rad;
+
+	direction_rad = convert_to_radian(info->direction);
+	distance = (wall.x - info->player.x) * cos(direction_rad)
+		+ (wall.y - info->player.y) * sin(direction_rad);
+	return (distance);
 }
