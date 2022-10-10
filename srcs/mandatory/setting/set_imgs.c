@@ -1,9 +1,21 @@
-#include "../../../includes/cub3D.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_imgs.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 11:51:13 by yahokari          #+#    #+#             */
+/*   Updated: 2022/10/10 11:51:30 by yahokari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int set_imgs(char *file, t_info *i)
+#include "../../../includes/setting.h"
+
+int	set_imgs(char *file, t_info *i)
 {
-	char *img_n[4];
-	void *img_f[4];
+	char	*img_n[4];
+	void	*img_f[4];
 
 	ft_bzero(img_n, sizeof(img_n));
 	ft_bzero(img_f, sizeof(img_f));
@@ -19,7 +31,7 @@ int set_imgs(char *file, t_info *i)
 	return (0);
 }
 
-int set_img_fname(char *img_n[], char *file)
+int	set_img_fname(char *img_n[], char *file)
 {
 	unsigned int	fc;
 	size_t			i;
@@ -46,7 +58,7 @@ int set_img_fname(char *img_n[], char *file)
 	return (0);
 }
 
-size_t set_img_elm(char *img_n[], char *file)
+size_t	set_img_elm(char *img_n[], char *file)
 {
 	size_t	set;
 	size_t	i;
@@ -73,9 +85,9 @@ size_t set_img_elm(char *img_n[], char *file)
 	return (i + 1);
 }
 
-size_t set_fc_elm(char *file, unsigned int *f)
+size_t	set_fc_elm(char *file, unsigned int *f)
 {
-	unsigned int rgb;
+	unsigned int	rgb;
 
 	rgb = str_to_rgb(file + 2, f);
 	if (*f & 1U << 2)
@@ -97,7 +109,7 @@ size_t set_fc_elm(char *file, unsigned int *f)
 	return (rgb);
 }
 
-unsigned int str_to_rgb(char * str, unsigned int *f)
+unsigned int	str_to_rgb(char * str, unsigned int *f)
 {
 	unsigned int rgb[3];
 	size_t			i;

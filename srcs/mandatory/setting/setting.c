@@ -1,8 +1,16 @@
-#include	"../../../includes/cub3D.h"
-#include	"../../../includes/setting.h"
-#include	"../../../libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setting.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 11:51:36 by yahokari          #+#    #+#             */
+/*   Updated: 2022/10/10 11:51:40 by yahokari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "debug.h"
+#include "../../../includes/setting.h"
 
 int setting(char *filename, t_info *i)
 {

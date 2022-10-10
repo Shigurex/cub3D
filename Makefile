@@ -4,6 +4,7 @@ LDFLAGS = -L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 SRCS_NAME = mandatory/main/main.c \
 	mandatory/main/setup.c \
 	mandatory/global/map.c \
+	mandatory/global/img.c \
 	mandatory/global/ceiling.c \
 	mandatory/global/flooring.c \
 	mandatory/raycasting/calculate.c \

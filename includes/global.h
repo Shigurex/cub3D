@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:25:48 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:27:01 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 11:54:09 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 # define SIZE_LINE 1
 # define ENDIAN 2
 
-int	map(size_t, size_t, char *);
-int	img(unsigned int *dest, t_direction d, size_t col, void *img_data);
-unsigned int flooring(unsigned int set);
-unsigned int ceiling(unsigned int set);
+int				map(size_t x, size_t y, char *file);
+int				img(unsigned int *dest, t_direction d, size_t col, void *img_data);
+unsigned int	flooring(unsigned int set);
+unsigned int	ceiling(unsigned int set);
 
 #endif

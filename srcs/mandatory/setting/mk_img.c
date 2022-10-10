@@ -1,8 +1,16 @@
-#include	"../../../includes/cub3D.h"
-#include	"../../../includes/setting.h"
-#include	"../../../libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mk_img.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 11:52:03 by yahokari          #+#    #+#             */
+/*   Updated: 2022/10/10 11:52:07 by yahokari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "debug.h"
+#include "../../../includes/setting.h"
 
 int mk_img(void *img, unsigned int *dst)
 {
