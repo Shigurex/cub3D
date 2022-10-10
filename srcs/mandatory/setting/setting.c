@@ -6,7 +6,7 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:36 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 13:23:42 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 15:02:03 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ TEST
 TEST
 	set_human(i, skip_map(file));
 	free(file);
-TESTx(ceiling(0))
 TESTx(flooring(0))
+TESTx(ceiling(0))
 	return (0);
 }
 
