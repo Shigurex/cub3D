@@ -6,13 +6,11 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:52:03 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 14:24:27 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 22:18:41 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
-
-#include "debug.h"
 
 int	mk_img(void *img, unsigned int *dst)
 {
@@ -20,7 +18,6 @@ int	mk_img(void *img, unsigned int *dst)
 	size_t	x;
 	size_t	y;
 
-TEST
 	imgs.address = img;
 	imgs.data = mlx_get_data_addr(imgs.address, &imgs.bpp, &imgs.size_l, &imgs.endian);
 	x = 0;

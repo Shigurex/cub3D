@@ -1,9 +1,4 @@
-#include	"../../../includes/cub3D.h"
-#include	"../../../includes/structure.h"
-#include	"../../../libft/libft.h"
-unsigned char *mk_map(char *file, size_t *x, size_t *y);
-
-#include "debug.h"
+#include	"../../../includes/global.h"
 
 int map(size_t x, size_t y, char *file)
 {

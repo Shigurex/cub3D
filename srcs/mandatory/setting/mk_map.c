@@ -6,7 +6,7 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:57 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 13:20:15 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 22:19:46 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ unsigned char *mk_map(char *file, size_t *x, size_t *y)
 	file = skip_map(file);
 	if (check_map_char(file) || set_map_size(file, x, y))
 		return (NULL);
-//TEST
 	r = malloc((*x) * (*y));
 	if (!r)
 	{
 		write(STDOUT_FILENO, "malloc error\n", 14);
 		return (NULL);
 	}
-//TEST
 	set_map(r, file, *x);
-//TEST
 	if (check_map_shape(r, *x, *y))
 	{
 		free(r);
 		return (NULL);
 	}
-//TEST
 	return (r);
 }
 
@@ -148,17 +144,7 @@ int check_map_shape(unsigned char	*map, size_t x, size_t y)
 		&& (!(i / x) || !(i % x) || i / x == y - 1 || i % x == x - 1 \
 			|| map[i + 1] == NONE || map[i - 1] == NONE \
 			|| map[i + x] == NONE || map[i - x] == NONE ))
-{
-//TESTn(!(i / x))
-//TESTn(!(i % x))
-//TESTn(i / x == y - 1)
-//TESTn(i % x == x - 1)
-//TESTn(map[i + 1] == NONE)
-//TESTn(map[i - 1] == NONE)
-//TESTn(map[i + x] == NONE)
-//TESTn(map[i - x] == NONE)
 			return (1);
-}
 		i++;
 	}
 	return (0);

@@ -6,13 +6,11 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:55:56 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 12:38:04 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 22:15:15 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/global.h"
-
-#include "debug.h"
 
 int	img(unsigned int *dest, t_direction d, size_t col, void *img_data)
 {

@@ -6,7 +6,7 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:13 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 15:16:31 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 22:21:20 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,11 @@ int	set_imgs(char *file, t_info *i)
 	|| set_imgf(img_n, img_f, i))
 		return (1);
 	restore_file(img_n);
-//TESTp(img_f[NORTH])
-//TESTp(img_f[SOUTH])
-//TESTp(img_f[EAST])
-//TESTp(img_f[WEST])
 	img(NULL, NORTH, 0, img_f[NORTH]);
 	img(NULL, SOUTH, 0, img_f[SOUTH]);
 	img(NULL, EAST, 0, img_f[EAST]);
 	img(NULL, WEST, 0, img_f[WEST]);
 	rm_imgs(img_f, i);
-//TEST
 	return (0);
 }
 
@@ -106,7 +101,6 @@ size_t	set_fc_elm(char *file, unsigned int *f)
 			return (0);
 		*f = 1U;
 		flooring(rgb);
-TESTx(flooring(0))
 	}
 	else
 	{
@@ -114,7 +108,6 @@ TESTx(flooring(0))
 			return (0);
 		*f = 1U << 1;
 		ceiling(rgb);
-TESTx(ceiling(0))
 	}
 	i = 0;
 	while (f[i] && file[i] != '\n')
@@ -129,14 +122,12 @@ unsigned int	str_to_rgb(char * str, unsigned int *f)
 	unsigned int rgb[3];
 	size_t			i;
 
-TESTs(str)
 	i = 0;
 	while (i < 3)
 	{
 		if (!ft_isdigit(*str))
 			*f |= 1u << 2;
 		rgb[i] = ft_atoi(str);
-TESTn(rgb[i])
 		if (rgb[i] > 0xff)
 			*f |= 1u << 2;
 		while (*str && ft_isdigit(*str))
@@ -146,7 +137,6 @@ TESTn(rgb[i])
 			*f |= 1u << 2;
 		str++;
 	}
-TESTx(*f)
 	return (0xff000000 + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2]);
 }
 
@@ -158,33 +148,23 @@ int set_imgf(char *img_n[], void *img_f[], t_info *i)
 	int		x;
 	int		y;
 
-//TEST
 	l = 0;
 	while (l < 4)
 	{
 		f = is_xpm(img_n[l]);
-//TEST
 		if (!f)
 		{
 			rm_imgs(img_f, i);
-//TEST
 			return (1);
 		}
-//TESTp(i->mlx)
 		img_f[l] = mlx_xpm_file_to_image(i->mlx, f, &x, &y);
-//TESTp(img_f[l])
 		if (!img_f[l] || x < BL || y < BL)
 		{
 			rm_imgs(img_f, i);
-//TESTn(!img_f[l])
-//TESTn(x < BL)
-//TESTn(y < BL)
 			return (1);
 		}
-//TEST
 		l++;
 	}
-//TEST
 	return(0);
 }
 
