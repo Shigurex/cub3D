@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:49:54 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:01:42 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:40:31 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	main(int argc, char *argv[])
 		printf("set arg!\n");
 		return (0);
 	}
+	init_setup(&info);
 	if (setting(argv[1], &info))
 	{
 		printf("can't set!\n");
 		return (0);
 	}
-	init_setup(&info);
 	plot_screen(&info);
 	mlx_loop(info.mlx);
 	return (0);

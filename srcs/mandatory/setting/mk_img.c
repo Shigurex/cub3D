@@ -3,30 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   mk_img.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:52:03 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 12:15:34 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:24:27 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
 
+#include "debug.h"
+
 int	mk_img(void *img, unsigned int *dst)
 {
-	char	*d;
-	int		i[3];
+	t_img	imgs;
 	size_t	x;
 	size_t	y;
 
-	d = mlx_get_data_addr(img, i + BITS_PER_PIXEL, i + SIZE_LINE, i + ENDIAN);
+TEST
+	imgs.address = img;
+	imgs.data = mlx_get_data_addr(imgs.address, &imgs.bpp, &imgs.size_l, &imgs.endian);
 	x = 0;
 	while (x < BL)
 	{
 		y = 0;
 		while (y < BL)
 		{
-			*dst = get_pic(d, x, y, i);
+			*dst = get_pic(&imgs, x, y);
 			dst++;
 			y++;
 		}
@@ -35,11 +38,11 @@ int	mk_img(void *img, unsigned int *dst)
 	return (0);
 }
 
-unsigned int	get_pic(char *img, size_t x, size_t y, int *i)
+unsigned int	get_pic(t_img *img, size_t x, size_t y)
 {
 	unsigned int	*img_i;
 
 	img_i = (unsigned int *) \
-	(img + (y * i[SIZE_LINE] + x * (i[BITS_PER_PIXEL] / 8)));
+	(img->data + (y * img->size_l + x * (img->bpp / 8)));
 	return (*img_i);
 }

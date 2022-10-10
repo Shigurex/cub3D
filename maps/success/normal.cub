@@ -1,10 +1,10 @@
-NO ../../imgs/wall.xpm
-SO ../../imgs/wall.xpm
-WE ../../imgs/wall.xpm
-EA ../../imgs/wall.xpm
+NO ./imgs/wall.xpm
+SO ./imgs/wall.xpm
+WE ./imgs/wall.xpm
+EA ./imgs/wall.xpm
 
 F 220,100,0
-C 225,30,0
+C 25,30,0
 
 111111111111
 100000000001

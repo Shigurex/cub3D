@@ -6,7 +6,7 @@
 /*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:08:28 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:33:09 by blyu             ###   ########.fr       */
+/*   Updated: 2022/10/10 13:37:55 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	plot_col(t_info *info, size_t col, t_intersection *intersec, double height)
 {
-	size_t			i;
-	size_t			wall_top;
-	size_t			wall_bottom;
+	ssize_t			i;
+	ssize_t			wall_top;
+	ssize_t			wall_bottom;
 	unsigned int	data[BL];
 
 	i = 0;
-	img(data, intersec->wall_direction, col, NULL);
+	img(data, intersec->wall_direction, intersec->img_col, NULL);
 	wall_top = DIS_Y * (BL - height) / (BL * 2);
 	wall_bottom = DIS_Y - wall_top;
+	
 	while (i < DIS_Y)
 	{
 		if (wall_top <= i && i <= wall_bottom)
-			my_pixel_put(info, col, i, data[(BL - 1) * (i - wall_top) / (wall_bottom - wall_top)]);
+			my_pixel_put(info, col, i, data[(int)((BL - 1) * (double)(i - wall_top) / (wall_bottom - wall_top))]);
 		else if (i < wall_top)
 			my_pixel_put(info, col, i, ceiling(0));
 		else

@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   mk_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:57 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:52:12 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:20:15 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
+
+#include "debug.h"
 
 unsigned char *mk_map(char *file, size_t *x, size_t *y)
 {
 	unsigned char	*r;
 
 	file = skip_map(file);
-//TESTs(file)
 	if (check_map_char(file) || set_map_size(file, x, y))
 		return (NULL);
 //TEST

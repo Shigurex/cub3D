@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   set_imgs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:13 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:51:30 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:22:57 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
+
+#include "debug.h"
 
 int	set_imgs(char *file, t_info *i)
 {
@@ -20,14 +22,19 @@ int	set_imgs(char *file, t_info *i)
 	ft_bzero(img_n, sizeof(img_n));
 	ft_bzero(img_f, sizeof(img_f));
 	if (set_img_fname(img_n, file) \
-	&& set_imgf(img_n, img_f, i))
+	|| set_imgf(img_n, img_f, i))
 		return (1);
 	restore_file(img_n);
+TESTp(img_f[NORTH])
+TESTp(img_f[SOUTH])
+TESTp(img_f[EAST])
+TESTp(img_f[WEST])
 	img(NULL, NORTH, 0, img_f[NORTH]);
 	img(NULL, SOUTH, 0, img_f[SOUTH]);
 	img(NULL, EAST, 0, img_f[EAST]);
 	img(NULL, WEST, 0, img_f[WEST]);
 	rm_imgs(img_f, i);
+TEST
 	return (0);
 }
 
@@ -88,9 +95,10 @@ size_t	set_img_elm(char *img_n[], char *file)
 size_t	set_fc_elm(char *file, unsigned int *f)
 {
 	unsigned int	rgb;
+	size_t			i;
 
 	rgb = str_to_rgb(file + 2, f);
-	if (*f & 1U << 2)
+	if (*f & 1U)
 		return (0);
 	if (!ft_memcmp(file, "F ", 2))
 	{
@@ -98,6 +106,7 @@ size_t	set_fc_elm(char *file, unsigned int *f)
 			return (0);
 		*f = 1U;
 		flooring(rgb);
+TESTx(flooring(0))
 	}
 	else
 	{
@@ -105,8 +114,14 @@ size_t	set_fc_elm(char *file, unsigned int *f)
 			return (0);
 		*f = 1U << 1;
 		ceiling(rgb);
+TESTx(ceiling(0))
 	}
-	return (rgb);
+	i = 0;
+	while (f[i] && file[i] != '\n')
+		i++;
+	if (!f[i])
+		return (0);
+	return (i + 1);
 }
 
 unsigned int	str_to_rgb(char * str, unsigned int *f)
@@ -140,23 +155,33 @@ int set_imgf(char *img_n[], void *img_f[], t_info *i)
 	int		x;
 	int		y;
 
+TEST
 	l = 0;
 	while (l < 4)
 	{
 		f = is_xpm(img_n[l]);
+//TEST
 		if (!f)
 		{
 			rm_imgs(img_f, i);
+//TEST
 			return (1);
 		}
-		img_f[l] = mlx_xpm_file_to_image(i->mlx, img_n[l], &x, &y);
+//TESTp(i->mlx)
+		img_f[l] = mlx_xpm_file_to_image(i->mlx, f, &x, &y);
+TESTp(img_f[l])
 		if (!img_f[l] || x < BL || y < BL)
 		{
 			rm_imgs(img_f, i);
+//TESTn(!img_f[l])
+//TESTn(x < BL)
+//TESTn(y < BL)
 			return (1);
 		}
+//TEST
 		l++;
 	}
+//TEST
 	return(0);
 }
 
@@ -192,7 +217,7 @@ void	restore_file(char *fname[])
 	size_t l;
 
 	l = 0;
-	while (l)
+	while (l < 4)
 	{
 		fname[l][ft_strlen(fname[l])] = '\n';
 		l++;

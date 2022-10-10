@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   setting.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 03:37:57 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 12:13:12 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:48:31 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			set_human(t_info *i, char *mapf);
 char			*read_file(char *filename);
 char			*reading_file(int fd, size_t B);
 unsigned char	*mk_map(char *file, size_t *x, size_t *y);
-unsigned int	get_pic(char *img, size_t x, size_t y, int *i);
+unsigned int	get_pic(t_img *img, size_t x, size_t y);
 
 int				set_imgs(char *file, t_info *i);
 int				set_img_fname(char *img_n[], char *file);

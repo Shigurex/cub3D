@@ -3,24 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:36 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:51:40 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:23:42 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
 
+#include "debug.h"
+
 int setting(char *filename, t_info *i)
 {
 	char	*file;
-
+	
+TEST
 	file = read_file(filename);
 	if (!file || set_imgs(file, i)|| map(0, 0, file) == MAP_ERROR)
 		return (1);
+TEST
 	set_human(i, skip_map(file));
 	free(file);
+TESTx(ceiling(0))
+TESTx(flooring(0))
 	return (0);
 }
 
