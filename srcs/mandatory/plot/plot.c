@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plot.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:08:28 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:16:25 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:33:09 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,20 @@ void	plot_col(t_info *info, size_t col, t_intersection *intersec, double height)
 	size_t			i;
 	size_t			wall_top;
 	size_t			wall_bottom;
-	//unsigned int	data[BL];
+	unsigned int	data[BL];
 
 	i = 0;
-	(void)intersec;
-	(void)col;
-	(void)info;
+	img(data, intersec->wall_direction, col, NULL);
 	wall_top = DIS_Y * (BL - height) / (BL * 2);
 	wall_bottom = DIS_Y - wall_top;
 	while (i < DIS_Y)
 	{
 		if (wall_top <= i && i <= wall_bottom)
-		{
-			//my_pixel_put(info, col, i, data[(BL - 1) * (i - wall_top) / (wall_bottom - wall_top)]);
-			my_pixel_put(info, col, i, 0xFFFFFF);
-		}
+			my_pixel_put(info, col, i, data[(BL - 1) * (i - wall_top) / (wall_bottom - wall_top)]);
 		else if (i < wall_top)
-			my_pixel_put(info, col, i, 0x46E1FC);
+			my_pixel_put(info, col, i, ceiling(0));
 		else
-			my_pixel_put(info, col, i, 0xAA5D00);
+			my_pixel_put(info, col, i, flooring(0));
 		i++;
 	}
 }

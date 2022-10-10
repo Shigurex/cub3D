@@ -1,18 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 03:36:38 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:38:30 by yahokari         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include	"../../../includes/cub3D.h"
+#include	"../../../includes/structure.h"
+#include	"../../../libft/libft.h"
+unsigned char *mk_map(char *file, size_t *x, size_t *y);
 
-#include	"../../../includes/global.h"
-
-int	map(size_t x, size_t y, char *file)
+int map(size_t x, size_t y, char *file)
 {
 	static unsigned char	*cube_map;
 	static size_t			X;

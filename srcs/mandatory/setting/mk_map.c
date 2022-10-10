@@ -1,16 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mk_map.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 03:40:31 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 03:40:39 by yahokari         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include	"../../../includes/cub3D.h"
 #include	"../../../includes/setting.h"
+#include	"../../../libft/libft.h"
+
 #include "debug.h"
 
 unsigned char *mk_map(char *file, size_t *x, size_t *y)
