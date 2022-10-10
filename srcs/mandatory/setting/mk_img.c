@@ -6,18 +6,18 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:52:03 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:52:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:15:34 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
 
-int mk_img(void *img, unsigned int *dst)
+int	mk_img(void *img, unsigned int *dst)
 {
-	unsigned char	*d;
-	int				i[3];
-	size_t			x;
-	size_t			y;
+	char	*d;
+	int		i[3];
+	size_t	x;
+	size_t	y;
 
 	d = mlx_get_data_addr(img, i + BITS_PER_PIXEL, i + SIZE_LINE, i + ENDIAN);
 	x = 0;
@@ -35,10 +35,11 @@ int mk_img(void *img, unsigned int *dst)
 	return (0);
 }
 
-unsigned int 	get_pic(unsigned char *img, size_t x, size_t y, int *i)
+unsigned int	get_pic(char *img, size_t x, size_t y, int *i)
 {
-	unsigned int *img_i;
+	unsigned int	*img_i;
 
-	img_i = img + (y * i[SIZE_LINE] + x * (i[BITS_PER_PIXEL] / 8));
+	img_i = (unsigned int *) \
+	(img + (y * i[SIZE_LINE] + x * (i[BITS_PER_PIXEL] / 8)));
 	return (*img_i);
 }

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:25:48 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:54:09 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:12:35 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include	<fcntl.h>
 # include	"../libft/libft.h"
 # include	"structure.h"
-# include	"structure.h"
 # include	"cub3D.h"
+# include	"setting.h"
 
 # define BITS_PER_PIXEL 0
 # define SIZE_LINE 1

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 03:37:57 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 11:53:03 by yahokari         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:13:12 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void			set_human(t_info *i, char *mapf);
 char			*read_file(char *filename);
 char			*reading_file(int fd, size_t B);
 unsigned char	*mk_map(char *file, size_t *x, size_t *y);
+unsigned int	get_pic(char *img, size_t x, size_t y, int *i);
 
 int				set_imgs(char *file, t_info *i);
 int				set_img_fname(char *img_n[], char *file);
@@ -40,5 +41,6 @@ int				set_imgf(char *img_n[], void *img_f[], t_info *i);
 void			rm_imgs(void *img_f[], t_info *i);
 char			*is_xpm(char *f);
 void			restore_file(char *fname[]);
+int				mk_img(void *img, unsigned int *dst);
 
 #endif
