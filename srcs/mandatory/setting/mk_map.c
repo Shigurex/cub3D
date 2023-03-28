@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:57 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:27:34 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:50:53 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,21 +129,4 @@ void	set_map(unsigned char	*map, char *file, size_t x)
 		map += l;
 	}
 	return ;
-}
-
-int	check_map_shape(unsigned char *map, size_t x, size_t y)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < x * y)
-	{
-		if (map[i] == SPACE \
-		&& (!(i / x) || !(i % x) || i / x == y - 1 || i % x == x - 1 \
-			|| map[i + 1] == NONE || map[i - 1] == NONE \
-			|| map[i + x] == NONE || map[i - x] == NONE))
-			return (1);
-		i++;
-	}
-	return (0);
 }

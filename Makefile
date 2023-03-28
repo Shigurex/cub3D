@@ -11,6 +11,7 @@ SRCS_NAME = mandatory/main/main.c \
 	mandatory/raycasting/raycasting.c \
 	mandatory/raycasting/raycasting_utils.c \
 	mandatory/setting/mk_map.c \
+	mandatory/setting/mk_map_utils.c \
 	mandatory/setting/mk_img.c \
 	mandatory/setting/setting.c \
 	mandatory/setting/set_human.c \

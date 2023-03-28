@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:08:28 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:43:38 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:54:51 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	plot_col(t_info *info, size_t col, \
 	{
 		if (wall_top <= i && i <= wall_bottom)
 			my_pixel_put(info, col, i, \
-				data[(int)((BL - 1) * (double)(i - wall_top) / (wall_bottom - wall_top))]);
+				data[(int)((BL - 1) * (double)(i - wall_top) / \
+					(wall_bottom - wall_top))]);
 		else if (i < wall_top)
 			my_pixel_put(info, col, i, flooring(0));
 		else

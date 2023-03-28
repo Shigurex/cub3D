@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:44:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:37:58 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:54:33 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ t_pos	check_vertical_intersection(t_info *info, double angle)
 	return (ray);
 }
 
-void	input_data(t_intersection *intersec, double angle, int direction, t_pos pos)
+void	input_data(t_intersection *intersec, double angle, \
+	int direction, t_pos pos)
 {
 	if (direction == HORIZONTAL && 0 <= angle && angle < M_PI)
 	{

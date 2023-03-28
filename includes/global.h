@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   global.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:25:48 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 22:17:43 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/28 16:54:04 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # define ENDIAN 2
 
 int				map(size_t x, size_t y, char *file);
-int				img(unsigned int *dest, t_direction d, size_t col, void *img_data);
+int				img(unsigned int *dest, t_direction d, \
+	size_t col, void *img_data);
 unsigned int	flooring(unsigned int set);
 unsigned int	ceiling(unsigned int set);
 
