@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mk_img.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:52:03 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 22:18:41 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/28 16:44:14 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	mk_img(void *img, unsigned int *dst)
 	size_t	y;
 
 	imgs.address = img;
-	imgs.data = mlx_get_data_addr(imgs.address, &imgs.bpp, &imgs.size_l, &imgs.endian);
+	imgs.data = mlx_get_data_addr(imgs.address, &imgs.bpp, \
+		&imgs.size_l, &imgs.endian);
 	x = 0;
 	while (x < BL)
 	{

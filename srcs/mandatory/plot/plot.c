@@ -6,13 +6,14 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:08:28 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:32:12 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 16:43:38 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../../includes/plot.h"
 
-void	plot_col(t_info *info, size_t col, t_intersection *intersec, double height)
+void	plot_col(t_info *info, size_t col, \
+	t_intersection *intersec, double height)
 {
 	ssize_t			i;
 	ssize_t			wall_top;
@@ -26,7 +27,8 @@ void	plot_col(t_info *info, size_t col, t_intersection *intersec, double height)
 	while (i < DIS_Y)
 	{
 		if (wall_top <= i && i <= wall_bottom)
-			my_pixel_put(info, col, i, data[(int)((BL - 1) * (double)(i - wall_top) / (wall_bottom - wall_top))]);
+			my_pixel_put(info, col, i, \
+				data[(int)((BL - 1) * (double)(i - wall_top) / (wall_bottom - wall_top))]);
 		else if (i < wall_top)
 			my_pixel_put(info, col, i, flooring(0));
 		else
@@ -47,7 +49,8 @@ void	plot_screen(t_info *info)
 	{
 		angle = info->direction + ((double)i - DIS_X / 2) / DIS_X * SIGHT;
 		intersec = check_intersection(info, convert_to_radian(angle));
-		height = BL / (2 * intersec.distance * tan(convert_to_radian(SIGHT / 2)));
+		height = BL / \
+			(2 * intersec.distance * tan(convert_to_radian(SIGHT / 2)));
 		plot_col(info, i, &intersec, height);
 		i++;
 	}
