@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:13 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:52:48 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:02:23 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,7 @@ size_t	set_fc_elm(char *file, unsigned int *f)
 	i = 0;
 	while (f[i] && file[i] != '\n')
 		i++;
-	if (!f[i])
-		return (0);
-	return (i + 1);
+	return ((!(!f[i])) * (i + 1));
 }
 
 int	set_imgf(char *img_n[], void *img_f[], t_info *i)

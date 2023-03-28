@@ -16,6 +16,7 @@ SRCS_NAME = mandatory/main/main.c \
 	mandatory/setting/setting.c \
 	mandatory/setting/set_human.c \
 	mandatory/setting/set_imgs.c \
+	mandatory/setting/set_imgs_utils.c \
 	mandatory/plot/plot.c \
 	mandatory/plot/pixel_put.c
 SRCDIR = srcs

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 03:37:57 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/28 16:53:56 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:00:47 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int				check_map_shape(unsigned char *map, size_t x, size_t y);
 void			rm_imgs(void *img_f[], t_info *i);
 char			*is_xpm(char *f);
 void			restore_file(char *fname[]);
+int				set_imgs(char *file, t_info *i);
 
 #endif
