@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plot.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:08:28 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 15:18:53 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/28 16:32:12 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ void	plot_col(t_info *info, size_t col, t_intersection *intersec, double height)
 	img(data, intersec->wall_direction, intersec->img_col, NULL);
 	wall_top = DIS_Y * (BL - height) / (BL * 2);
 	wall_bottom = DIS_Y - wall_top;
-	
 	while (i < DIS_Y)
 	{
 		if (wall_top <= i && i <= wall_bottom)
 			my_pixel_put(info, col, i, data[(int)((BL - 1) * (double)(i - wall_top) / (wall_bottom - wall_top))]);
 		else if (i < wall_top)
-			my_pixel_put(info, col, i,flooring(0));
+			my_pixel_put(info, col, i, flooring(0));
 		else
 			my_pixel_put(info, col, i, ceiling(0));
 		i++;

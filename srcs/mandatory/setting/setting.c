@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   setting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:36 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 22:21:59 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/28 16:26:38 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
 
-int setting(char *filename, t_info *i)
+int	setting(char *filename, t_info *i)
 {
 	char	*file;
-	
+
 	file = read_file(filename);
-	if (!file || set_imgs(file, i)|| map(0, 0, file) == MAP_ERROR)
+	if (!file || set_imgs(file, i) || map(0, 0, file) == MAP_ERROR)
 		return (1);
 	set_human(i, skip_map(file));
 	free(file);
@@ -37,7 +37,7 @@ char	*read_file(char *filename)
 	return (r);
 }
 
-char *reading_file(int fd, size_t B)
+char	*reading_file(int fd, size_t B)
 {
 	char	buf[BUFFERSIZE];
 	ssize_t	i;

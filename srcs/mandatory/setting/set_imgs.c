@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   set_imgs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:51:13 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 22:21:20 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/28 16:31:13 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/setting.h"
-
-#include "debug.h"
 
 int	set_imgs(char *file, t_info *i)
 {
@@ -47,9 +45,9 @@ int	set_img_fname(char *img_n[], char *file)
 		|| !ft_memcmp(file, "EA ", 3))
 			i = set_img_elm(img_n, file);
 		else if (!ft_memcmp(file, "F ", 2)
-		|| !ft_memcmp(file, "C ", 2))
+			|| !ft_memcmp(file, "C ", 2))
 			i = set_fc_elm(file, &fc);
-		else if(*file == '\n')
+		else if (*file == '\n')
 			i = 1;
 		else
 			break ;
@@ -72,13 +70,13 @@ size_t	set_img_elm(char *img_n[], char *file)
 		return (0);
 	file[i] = '\0';
 	if (!ft_memcmp(file, "NO ", 3))
-			set = NORTH;
-	else if(!ft_memcmp(file, "SO ", 3))
-			set = SOUTH;
-	else if(!ft_memcmp(file, "WE ", 3))
-			set = WEST;
-	else if(!ft_memcmp(file, "EA ", 3))
-			set = EAST;
+		set = NORTH;
+	else if (!ft_memcmp(file, "SO ", 3))
+		set = SOUTH;
+	else if (!ft_memcmp(file, "WE ", 3))
+		set = WEST;
+	else if (!ft_memcmp(file, "EA ", 3))
+		set = EAST;
 	else
 		return (0);
 	if (img_n[set])
@@ -117,9 +115,9 @@ size_t	set_fc_elm(char *file, unsigned int *f)
 	return (i + 1);
 }
 
-unsigned int	str_to_rgb(char * str, unsigned int *f)
+unsigned int	str_to_rgb(char *str, unsigned int *f)
 {
-	unsigned int rgb[3];
+	unsigned int	rgb[3];
 	size_t			i;
 
 	i = 0;
@@ -140,8 +138,7 @@ unsigned int	str_to_rgb(char * str, unsigned int *f)
 	return (0xff000000 + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2]);
 }
 
-
-int set_imgf(char *img_n[], void *img_f[], t_info *i)
+int	set_imgf(char *img_n[], void *img_f[], t_info *i)
 {
 	size_t	l;
 	char	*f;
@@ -165,10 +162,10 @@ int set_imgf(char *img_n[], void *img_f[], t_info *i)
 		}
 		l++;
 	}
-	return(0);
+	return (0);
 }
 
-void rm_imgs(void *img_f[], t_info *i)
+void	rm_imgs(void *img_f[], t_info *i)
 {
 	size_t	l;
 
@@ -185,7 +182,7 @@ void rm_imgs(void *img_f[], t_info *i)
 
 char	*is_xpm(char *f)
 {
-	size_t l;
+	size_t	l;
 
 	l = ft_strlen(f);
 	if (l < 4 || ft_memcmp(f + l - 4, ".xpm", 4))
@@ -197,7 +194,7 @@ char	*is_xpm(char *f)
 
 void	restore_file(char *fname[])
 {
-	size_t l;
+	size_t	l;
 
 	l = 0;
 	while (l < 4)
