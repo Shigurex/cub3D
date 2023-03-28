@@ -1,7 +1,7 @@
 NO ./imgs/wall.xpm
 SO ./imgs/floor.xpm
-WE ./imgs/wall.xpm
-EA ./imgs/floor.xpm
+WE ./imgs/soil.xpm
+EA ./imgs/ston.xpm
 
 F 0,0,255
 C 0,255,0
