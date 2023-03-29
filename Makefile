@@ -9,7 +9,7 @@ OBJDIR = objs
 LIBFT = libft/libft.a
 MINILIBX = minilibx-linux/libmlx_Darwin.a
 
-SRC_NAME = main.c
+SRC_NAME = main/main.c
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

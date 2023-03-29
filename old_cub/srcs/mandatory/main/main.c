@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:49:54 by yahokari          #+#    #+#             */
-/*   Updated: 2022/10/10 12:40:31 by blyu             ###   ########.fr       */
+/*   Updated: 2023/03/29 22:58:08 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_setup(t_info *info)
 	info->img.address = mlx_new_image(info->mlx, DIS_X, DIS_Y);
 	info->img.data = mlx_get_data_addr(info->img.address, \
 		&info->img.bpp, &info->img.size_l, &info->img.endian);
+	//mlx_expose_hook(info->win, ,)
 }
 
 int	main(int argc, char *argv[])
