@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rgb_to_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:56:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/03 12:13:09 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/03 11:28:23 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/03 11:39:49 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"define.h"
-#include	"parse.h"
-#include	"setup.h"
 #include	"utils.h"
 
-int	main(int argc, char **argv)
+unsigned int	rgb_to_color(int red, int green, int blue)
 {
-	t_info	info;
+	unsigned int	color;
 
-	info.mlx = mlx_init();
-	if (argc != 2)
-		exit_with_message("invalid number of arguments");
-	readfile(&info, argv[1]);
-	init_setup(&info);
-	mlx_loop(info.mlx);
-	return (0);
+	color = 0;
+	color |= (unsigned int)0xff << 24;
+	color |= (unsigned int)red << 16;
+	color |= (unsigned int)green << 8;
+	color |= (unsigned int)blue;
+	return (color);
 }
