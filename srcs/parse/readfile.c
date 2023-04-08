@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:36:27 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/03 12:23:53 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/07 19:46:50 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 static void	init_information(t_info *info)
 {
+	info->map_width = 0;
+	info->map_height = 0;
 	info->map_list = NULL;
-	info->north_texture.data = NULL;
-	info->south_texture.data = NULL;
-	info->west_texture.data = NULL;
-	info->east_texture.data = NULL;
+	info->north_xpm_img.address = NULL;
+	info->south_xpm_img.address = NULL;
+	info->west_xpm_img.address = NULL;
+	info->east_xpm_img.address = NULL;
 	info->ceiling_color = 0;
 	info->floor_color = 0;
+	info->player.x = 0;
+	info->player.y = 0;
+	info->direction = 0;
 }
 
 static bool	is_valid_format(char *file_name)
@@ -40,35 +45,14 @@ static bool	is_valid_format(char *file_name)
 
 static bool	is_ready_to_read_map(t_info *info)
 {
-	if (!info->north_texture.data || !info->south_texture.data
-		|| !info->east_texture.data || !info->west_texture.data
+	if (!info->north_xpm_img.address || !info->south_xpm_img.address
+		|| !info->east_xpm_img.address || !info->west_xpm_img.address
 		|| !info->ceiling_color || !info->floor_color)
 		return (false);
 	return (true);
 }
 
-static void	input_texture_and_color(t_info *info, char *line)
-{
-	char	**split_line;
-	size_t	size;
-
-	split_line = ft_split(line, ' ');
-	if (!split_line)
-		exit_with_message("failed to allocate memory");
-	size = count_split_size(split_line);
-	if (size != 2)
-		exit_with_message("invalid format for contents set at the map");
-	if (!strcmp(split_line[0], "NO") || !strcmp(split_line[0], "SO")
-		|| !strcmp(split_line[0], "WE") || !strcmp(split_line[0], "EA"))
-		input_texture(info, split_line);
-	else if (!strcmp(split_line[0], "F") || !strcmp(split_line[0], "C"))
-		input_color(info, split_line);
-	else
-		exit_with_message("invalid format for contents set at the map");
-	safe_free_char_double_pointer(&split_line);
-}
-
-static void	input_data(t_info *info, int fd)
+static void	input_address(t_info *info, int fd)
 {
 	char	*line;
 	char	*newline_pos;
@@ -83,14 +67,14 @@ static void	input_data(t_info *info, int fd)
 			*newline_pos = '\0';
 		if (is_ready_to_read_map(info))
 			input_map(info, line);
-		else if (!ft_strcmp(line, EMPTY_STRING))
-			;
 		else
-			input_texture_and_color(info, line);
+			input_texture(info, line);
 		safe_free_char_pointer(&line);
 	}
 	if (!is_ready_to_read_map(info) || !info->map_list)
 		exit_with_message("missing context in map file");
+	else if (info->player.x == 0 && info->player.y == 0)
+		exit_with_message("starting position not set");
 }
 
 void	readfile(t_info *info, char *file_name)
@@ -103,7 +87,12 @@ void	readfile(t_info *info, char *file_name)
 	fd = open(file_name, O_RDONLY);
 	if (fd == OPEN_ERROR)
 		exit_with_message("failed to open map file");
-	input_data(info, fd);
+	input_address(info, fd);
 	close(fd);
+	printf("%s, %d\n", __FILE__, __LINE__);
 	print_list(info->map_list);
+	printf("width: %zu, height: %zu\n", info->map_width, info->map_height);
+	printf("starting point: (%f, %f), direction: %f\n", info->player.x, info->player.y, info->direction);
+	make_map_from_list(info);
+	clear_list(&info->map_list);
 }

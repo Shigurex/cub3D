@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   plot.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:56:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/04 17:32:58 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/07 15:47:27 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/08 19:24:27 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"define.h"
-#include	"parse.h"
-#include	"setup.h"
 #include	"plot.h"
-#include	"utils.h"
 
-int	main(int argc, char **argv)
+int	plot_screen(t_info *info)
 {
-	t_info	info;
-
-	info.mlx = mlx_init();
-	if (argc != 2)
-		exit_with_message("invalid number of arguments");
-	readfile(&info, argv[1]);
-	init_setup(&info);
-	plot_minimap(&info);
-	mlx_loop(info.mlx);
+	//move_view(info);
+	plot_minimap(info);
 	return (0);
 }

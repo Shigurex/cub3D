@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:56:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/04 17:32:58 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/04 16:49:17 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/07 09:38:08 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"define.h"
-#include	"parse.h"
-#include	"setup.h"
-#include	"plot.h"
-#include	"utils.h"
+#ifndef RAYCASTING_H
+# define RAYCASTING_H
 
-int	main(int argc, char **argv)
-{
-	t_info	info;
+# include	<stdbool.h>
+# include	"utils.h"
+# include	"define.h"
 
-	info.mlx = mlx_init();
-	if (argc != 2)
-		exit_with_message("invalid number of arguments");
-	readfile(&info, argv[1]);
-	init_setup(&info);
-	plot_minimap(&info);
-	mlx_loop(info.mlx);
-	return (0);
-}
+/* raycasting.c */
+t_intersection	check_intersection(t_info *info, double angle);
+
+#endif

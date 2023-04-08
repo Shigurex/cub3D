@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 LDFLAGS = -L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
 INCLUDES = -I ./includes
 
@@ -14,13 +14,20 @@ SRC_NAME = main/main.c \
 	setup/key.c \
 	parse/readfile.c \
 	parse/texture.c \
-	parse/color.c \
 	parse/map.c \
+	parse/convert.c \
+	plot/action.c \
+	plot/plot.c \
+	plot/minimap.c \
+	plot/pixel_put.c \
+	raycasting/raycasting.c \
 	utils/exit_error.c \
 	utils/safe_free.c \
 	utils/count.c \
 	utils/list.c \
 	utils/rgb_to_color.c \
+	utils/degree_to_radian.c \
+	utils/assign_pos.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

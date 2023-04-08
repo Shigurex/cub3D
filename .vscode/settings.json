@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"define.h": "c",
+		"array": "c",
+		"vector": "c"
+	}
+}

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   degree_to_radian.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:56:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/04 17:32:58 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/04 16:38:28 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/04 16:46:23 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"define.h"
-#include	"parse.h"
-#include	"setup.h"
-#include	"plot.h"
 #include	"utils.h"
 
-int	main(int argc, char **argv)
+double	degree_to_radian(double degree)
 {
-	t_info	info;
+	double	radian;
 
-	info.mlx = mlx_init();
-	if (argc != 2)
-		exit_with_message("invalid number of arguments");
-	readfile(&info, argv[1]);
-	init_setup(&info);
-	plot_minimap(&info);
-	mlx_loop(info.mlx);
-	return (0);
+	degree = fmod(degree, 360);
+	if (degree <= 0)
+		degree = fmod(fmod(degree, 360) + 360, 360);
+	radian = degree / 360 * 2 * M_PI;
+	return (radian);
 }
