@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 01:41:30 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 20:16:30 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,42 @@ void	move_view(t_info *info)
 	info->direction = convert_degree_within_two_pie(info->direction);
 }
 
-static t_pos	get_moved_pos(t_info *info)
+static double	calculate_moving_angle(t_info *info)
 {
 	double	angle;
-	t_pos	moved_pos;
+	int		x;
+	int		y;
 
-	angle = degree_to_radian(info->direction);
+	x = 0;
+	y = 0;
 	if (info->key_flag & MOVE_FORWARD)
-		info->player = assign_pos(info->player.x + SPEED * cos(angle), \
-			info->player.y + SPEED * sin(angle));
+		x++;
 	if (info->key_flag & MOVE_BACKWORD)
-		info->player = assign_pos(info->player.x - SPEED * cos(angle), \
-			info->player.y - SPEED * sin(angle));
-	if (info->key_flag & MOVE_LEFT)
-		info->player = assign_pos(info->player.x + SPEED * cos(angle - M_PI_2), \
-			info->player.y + SPEED * sin(angle - M_PI_2));
+		x--;
 	if (info->key_flag & MOVE_RIGHT)
-		info->player = assign_pos(info->player.x - SPEED * cos(angle - M_PI_2), \
-			info->player.y - SPEED * sin(angle - M_PI_2));
-	moved_pos.x = info->player.x;
-	moved_pos.y = info->player.y;
-	//printf("(%f, %f)\n", moved_pos.x, moved_pos.y);
-	return (moved_pos);
+		y++;
+	if (info->key_flag & MOVE_LEFT)
+		y--;
+	if (x == 0 && y == 0)
+		return (DBL_MAX);
+	angle = info->direction + atan2(y, x) / (2 * M_PI) * 360;
+	angle = degree_to_radian(angle);
+	return (angle);
 }
 
-void	move_direction(t_info *info) // need modified
+void	move_direction(t_info *info)
 {
-	t_pos	moved_pos;
+	double			angle;
+	t_pos			moved_pos;
+	t_intersection	intersection;
 
-	moved_pos = get_moved_pos(info);
-	//printf("(%f, %f)\n", moved_pos.x, moved_pos.y);
-	(void)moved_pos;
-	//printf("(%f, %f)\n", moved_pos.x, moved_pos.y);
-	//info->player.x = moved_pos.x;
-	//info->player.y = moved_pos.y;
+	angle = calculate_moving_angle(info);
+	if (angle == DBL_MAX)
+		return ;
+	moved_pos = assign_pos(info->player.x + SPEED * cos(angle), \
+		info->player.y + SPEED * sin(angle));
+	intersection = check_intersection(info, angle);
+	if (calculate_distance(info->player, moved_pos) \
+		< calculate_distance(info->player, intersection.pos))
+		info->player = assign_pos(moved_pos.x, moved_pos.y);
 }

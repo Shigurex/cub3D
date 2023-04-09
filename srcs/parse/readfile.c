@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 16:36:27 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/07 19:46:50 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:32:02 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	init_information(t_info *info)
 	info->player.x = 0;
 	info->player.y = 0;
 	info->direction = 0;
+	info->eye_angle = 0;
 }
 
 static bool	is_valid_format(char *file_name)

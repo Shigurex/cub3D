@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 01:51:57 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:38:04 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:33:41 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,6 @@ t_axis	get_closer_axis(t_info *info, \
 		return (HORIZONTAL);
 	else
 		return (VERTICAL);
-}
-
-double	calculate_distance(t_pos pos1, t_pos pos2)
-{
-	double	distance;
-
-	distance = sqrt(pow(pos2.x - pos1.x, 2) \
-		+ pow(pos2.y - pos1.y, 2));
-	return (distance);
 }
 
 int	calculate_img_col(t_info *info, t_direction direction, t_pos pos)

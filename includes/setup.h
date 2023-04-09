@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:53:49 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:43:43 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:35:16 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,23 @@
 # include	"parse.h"
 # include	"plot.h"
 
-# define ROTATE_SPEED 0.01
-# define SPEED 0.01
+# define ROTATE_SPEED 2
+# define SPEED 0.05
 
-# define SIGHT_ANGLE 60
+# define HORIZONTAL_SIGHT_ANGLE 60
+# define VERTICAL_SIGHT_ANGLE 30
 
-# define ESC 65307
+# define HEIGHT 0.3
 
-# define LEFT 65361
-# define RIGHT 65363
+# define ESC 53
 
-# define W 119
-# define A 97
-# define S 115
-# define D 100
+# define LEFT 123
+# define RIGHT 124
+
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
 # define ON_KEYDOWN 2
 # define ON_KEYUP 3
@@ -43,6 +46,8 @@
 
 typedef enum e_key_flag
 {
+	CLEAR_ALL = 0,
+	MOVE = 1111 << 0,
 	MOVE_FORWARD = 1 << 0,
 	MOVE_BACKWORD = 1 << 1,
 	MOVE_LEFT = 1 << 2,

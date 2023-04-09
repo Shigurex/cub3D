@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 17:36:06 by blyu             ###   ########.fr       */
+/*   Updated: 2023/04/09 21:32:29 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ typedef struct s_info
 	t_img			minimap;
 	t_pos			player;
 	double			direction;
+	double			eye_angle;
 	t_block			**map;
 	t_circ_list		*map_list;
 	size_t			map_width;

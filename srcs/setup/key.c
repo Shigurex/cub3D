@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:21:22 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 01:01:09 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:27:37 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	handle_key_press_action(int keycode, t_info *info)
 
 int	handle_key_release_action(int keycode, t_info *info)
 {
-	(void)info;
 	if (keycode == LEFT)
 		info->key_flag &= ~ROTATE_LEFT;
 	else if (keycode == RIGHT)

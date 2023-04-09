@@ -1,13 +1,16 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 LDFLAGS =  -Wshadow -Imlx
 INCLUDES = -I ./includes
 
 SRCDIR = srcs
 OBJDIR = objs
 
-LIBFT = libft/libft.a
-MINILIBX = minilibx_mms_20200219/libmlx.dylib
+LIBFT = libft.a
+LIBFT_DIR = ./libft
+
+MINILIBX = libmlx.dylib
+MINILIBX_DIR = ./minilibx_mms_20200219
 
 SRC_NAME = main/main.c \
 	setup/setup.c \
@@ -28,8 +31,8 @@ SRC_NAME = main/main.c \
 	utils/count.c \
 	utils/list.c \
 	utils/rgb_to_color.c \
-	utils/degree_to_radian.c \
-	utils/assign_pos.c \
+	utils/angle.c \
+	utils/pos.c \
 	utils/get_sign.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
@@ -37,21 +40,26 @@ OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 NAME = cub3D
 
-$(NAME): $(OBJDIR) $(OBJS)
-	$(MAKE) -C libft
-	$(MAKE) -C ./minilibx_mms_20200219
-	cp -f $(MINILIBX) ./
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) libmlx.dylib -o $(NAME)
+$(NAME): $(OBJDIR) $(LIBFT) $(MINILIBX) $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MINILIBX) -o $(NAME)
 
 $(OBJDIR):
 	mkdir $(shell find $(SRCDIR) -type d | sed 's/^$(SRCDIR)/$(OBJDIR)/g')
+
+$(LIBFT):
+	$(MAKE) -C libft
+
+$(MINILIBX):
+	$(MAKE) -C $(MINILIBX_DIR)
+	cp -f $(MINILIBX_DIR)/$(MINILIBX) ./
 
 all: $(NAME)
 
 clean:
 	rm -rf $(OBJDIR)
-	$(MAKE) clean -C ./minilibx_mms_20200219
-	$(MAKE) fclean -C ./libft
+	$(RM) $(MINILIBX)
+	$(MAKE) clean -C $(MINILIBX_DIR)
+	$(MAKE) fclean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME)

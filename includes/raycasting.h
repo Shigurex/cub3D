@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:49:17 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:38:28 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 18:33:57 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include	"define.h"
 
 /* raycasting_utils.c */
-double			calculate_distance(t_pos pos1, t_pos pos2);
 t_type			get_bumped_block(t_info *info, \
 	t_pos ray, double angle, t_axis axis);
 int				calculate_img_col(t_info *info, \
