@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:40:48 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 17:36:06 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DEFINE_H
 
 # include	<stdio.h>
-# include	"../minilibx-linux/mlx.h"
+# include	"../minilibx_mms_20200219/mlx.h"
 
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 900

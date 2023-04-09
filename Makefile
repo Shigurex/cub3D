@@ -1,13 +1,13 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
-LDFLAGS = -L/usr/X11R6/lib -lX11 -lXext -framework OpenGL -framework AppKit
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+LDFLAGS =  -Wshadow -Imlx
 INCLUDES = -I ./includes
 
 SRCDIR = srcs
 OBJDIR = objs
 
 LIBFT = libft/libft.a
-MINILIBX = minilibx-linux/libmlx_Darwin.a
+MINILIBX = minilibx_mms_20200219/libmlx.dylib
 
 SRC_NAME = main/main.c \
 	setup/setup.c \
@@ -39,8 +39,9 @@ NAME = cub3D
 
 $(NAME): $(OBJDIR) $(OBJS)
 	$(MAKE) -C libft
-	$(MAKE) -C ./minilibx-linux
-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) $(MINILIBX) -o $(NAME)
+	$(MAKE) -C ./minilibx_mms_20200219
+	cp -f $(MINILIBX) ./
+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) libmlx.dylib -o $(NAME)
 
 $(OBJDIR):
 	mkdir $(shell find $(SRCDIR) -type d | sed 's/^$(SRCDIR)/$(OBJDIR)/g')
@@ -49,7 +50,7 @@ all: $(NAME)
 
 clean:
 	rm -rf $(OBJDIR)
-	$(MAKE) clean -C ./minilibx-linux
+	$(MAKE) clean -C ./minilibx_mms_20200219
 	$(MAKE) fclean -C ./libft
 
 fclean: clean
