@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:53:49 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/08 19:07:48 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:43:43 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,10 @@
 # include	"parse.h"
 # include	"plot.h"
 
-# define MOVE_FORWARD 0b1
-# define MOVE_BACKWORD 0b10
-# define MOVE_LEFT 0b100
-# define MOVE_RIGHT 0b1000
-# define ROTATE_LEFT 0b10000
-# define ROTATE_RIGHT 0b100000
-
-# define ROTATE_SPEED 0.5
+# define ROTATE_SPEED 0.01
 # define SPEED 0.01
+
+# define SIGHT_ANGLE 60
 
 # define ESC 65307
 
@@ -45,6 +40,16 @@
 # define ON_MOUSEMOVE 6
 # define ON_EXPOSE 12
 # define ON_DESTROY 17
+
+typedef enum e_key_flag
+{
+	MOVE_FORWARD = 1 << 0,
+	MOVE_BACKWORD = 1 << 1,
+	MOVE_LEFT = 1 << 2,
+	MOVE_RIGHT = 1 << 3,
+	ROTATE_LEFT = 1 << 4,
+	ROTATE_RIGHT = 1 << 5
+}	t_key_flag;
 
 /* setup.c */
 void	init_setup(t_info *info);

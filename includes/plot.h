@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:28:05 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/08 19:09:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:29:55 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,13 @@ int		plot_screen(t_info *info);
 
 /* action.h */
 void	move_view(t_info *info);
+void	move_direction(t_info *info);
 
 /* minimap.c */
 void	plot_minimap(t_info *info);
+
+/* view.c */
+void	plot_view(t_info *info);
 
 /* pixel_put.c */
 void	my_pixel_put(t_img *img, int x, int y, unsigned int color);

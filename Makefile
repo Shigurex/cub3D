@@ -18,9 +18,11 @@ SRC_NAME = main/main.c \
 	parse/convert.c \
 	plot/action.c \
 	plot/plot.c \
+	plot/view.c \
 	plot/minimap.c \
 	plot/pixel_put.c \
 	raycasting/raycasting.c \
+	raycasting/raycasting_utils.c \
 	utils/exit_error.c \
 	utils/safe_free.c \
 	utils/count.c \
@@ -28,6 +30,7 @@ SRC_NAME = main/main.c \
 	utils/rgb_to_color.c \
 	utils/degree_to_radian.c \
 	utils/assign_pos.c \
+	utils/get_sign.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

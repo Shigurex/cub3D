@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/08 18:29:59 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:40:48 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,13 @@ typedef struct s_pos
 
 typedef struct s_intersection
 {
-	t_type	type;
-	t_axis	axis;
-	t_pos	pos;
-	double	distance;
+	t_type		type;
+	t_pos		pos;
+	t_axis		axis;
+	double		distance;
+	t_direction	direction;
+	t_xpm_img	xpm_img;
+	int			xpm_img_col;
 }	t_intersection;
 
 typedef struct s_block

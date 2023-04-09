@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/08 18:43:00 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:25:10 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,16 @@ void	plot_minimap(t_info *info)
 		}
 		i++;
 	}
-	//for (double angle = 0; angle < 400; angle += 10) {
-	//	t_intersection intersection = check_intersection(info, degree_to_radian(angle));
-	//	printf("angle %f: %f %f\n", angle, intersection.pos.x, intersection.pos.y);
-	//	//printf("distance: %f\n", intersection.distance);
-	//	//printf("axis: %d\n", intersection.axis);
-	//	//printf("type: %d\n\n", intersection.type);
-	//}
+	for (double angle = 100; angle < 300; angle += 10) {
+		t_intersection intersection = check_intersection(info, degree_to_radian(angle));
+		printf("angle %f: %f %f\n", angle, intersection.pos.x, intersection.pos.y);
+		printf("direction: %d\n", intersection.direction);
+		printf("xpm_img_col: %d\n", intersection.xpm_img_col);
+		//printf("%d, %d, %d, %d\n", info->north_xpm_img.width, info->south_xpm_img.width,info->west_xpm_img.width,info->east_xpm_img.width);
+		//printf("distance: %f\n", intersection.distance);
+		//printf("axis: %d\n", intersection.axis);
+		//printf("type: %d\n\n", intersection.type);
+	}
 	mlx_put_image_to_window(info->mlx, info->win, \
 		info->minimap.address, 20, 20);
 	//mlx_put_image_to_window(info->mlx, info->win, \

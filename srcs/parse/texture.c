@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 21:23:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/07 19:47:06 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:27:06 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_xpm_img	set_xpm_img(t_info *info, char *relative_path)
 
 	xpm_img.address = mlx_xpm_file_to_image(info->mlx, relative_path, \
 		&xpm_img.width, &xpm_img.height);
-	if (!xpm_img.address)
+	if (!xpm_img.address || xpm_img.width == 0 || xpm_img.height == 0)
 		exit_with_message("failed to read image file");
 	return (xpm_img);
 }

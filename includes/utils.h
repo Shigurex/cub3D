@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:01:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/07 19:45:21 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:02:14 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,13 @@ void			print_list(t_circ_list *list);
 unsigned int	rgb_to_color(int red, int green, int blue);
 
 /* degree_to_radian.c */
+double			convert_degree_within_two_pie(double degree);
 double			degree_to_radian(double degree);
 
 /* assign_pos.c */
 t_pos			assign_pos(double x, double y);
+
+/* get_sign.c */
+int				get_sign(double value);
 
 #endif

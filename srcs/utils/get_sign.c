@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plot.c                                             :+:      :+:    :+:   */
+/*   get_sign.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 15:47:27 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:33:29 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/09 02:01:46 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/09 02:01:59 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"plot.h"
+#include	"utils.h"
 
-int	plot_screen(t_info *info)
+int	get_sign(double value)
 {
-	move_view(info);
-	move_direction(info);
-	plot_view(info);
-	plot_minimap(info);
-	return (0);
+	if (value >= 0)
+		return (1);
+	return (-1);
 }
