@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 21:32:29 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:03:38 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ typedef struct s_img
 typedef struct s_xpm_img
 {
 	void	*address;
+	char	*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
 	int		width;
 	int		height;
 }	t_xpm_img;

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:53:49 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 21:35:16 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:45:08 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define SPEED 0.05
 
 # define HORIZONTAL_SIGHT_ANGLE 60
-# define VERTICAL_SIGHT_ANGLE 30
+# define VERTICAL_SIGHT_ANGLE 50
 
 # define HEIGHT 0.3
 
