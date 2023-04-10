@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:19:31 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:30:27 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ static t_pos	get_minimap_pos_from_ratio(t_info *info, \
 		+ MINIMAP_SIZE * y_ratio;
 	return (pos);
 }
-
-//static bool	is_inside_circle(t_info *info, double radius, int x, int y)
-//{
-	
-//}
 
 static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 {
@@ -52,23 +47,23 @@ static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 
 void	plot_minimap(t_info *info)
 {
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 	t_pos	pos;
 
-	i = 0;
-	while (i < MINIMAP_HEIGHT)
+	y = 0;
+	while (y < MINIMAP_HEIGHT)
 	{
-		j = 0;
-		while (j < MINIMAP_WIDTH)
+		x = 0;
+		while (x < MINIMAP_WIDTH)
 		{
 			pos = get_minimap_pos_from_ratio(info, \
-				(double)j / MINIMAP_WIDTH, 1 - (double)i / MINIMAP_HEIGHT);
-			my_pixel_put(&info->screens.minimap, j, i, \
+				(double)x / MINIMAP_WIDTH, 1 - (double)y / MINIMAP_HEIGHT);
+			my_pixel_put(&info->screens.minimap, x, y, \
 				get_color_of_minimap_pos(info, pos));
-			j++;
+			x++;
 		}
-		i++;
+		y++;
 	}
 	mlx_put_image_to_window(info->mlx, info->win, \
 		info->screens.minimap.address, WIN_WIDTH / 60, WIN_HEIGHT / 45);

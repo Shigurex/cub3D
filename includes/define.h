@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:18:05 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:33:32 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ typedef struct s_ray
 	t_direction	direction;
 	double		yaw; // absolute value
 	double		distance;
+	int			row_win;
 }	t_ray;
 
 typedef struct s_info

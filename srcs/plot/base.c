@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:34:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:15:47 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:33:43 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ static void	plot_line(t_info *info, t_ray ray, int x)
 	{
 		pitch = info->player.pitch + \
 			((double)y - WIN_HEIGHT / 2) / WIN_HEIGHT * SIGHT_PITCH;
-		height = 0.5 + ray.distance * cos(degree_to_radian(ray.yaw - info->player.yaw)) * tan(degree_to_radian(pitch));
+		height = 0.5 + ray.distance * \
+			cos(degree_to_radian(ray.yaw - info->player.yaw)) * \
+			tan(degree_to_radian(pitch));
 		if (height < 0)
 			my_pixel_put(&info->screens.base, x, y, info->textures.floor);
 		else if (height > 1)
@@ -49,6 +51,7 @@ void	plot_base(t_info *info)
 		yaw = info->player.yaw + \
 			(WIN_WIDTH / 2 - (double)x) / WIN_WIDTH * SIGHT_YAW;
 		ray = check_intersection(info, yaw);
+		ray.row_win = x;
 		plot_line(info, ray, x);
 		x++;
 	}
