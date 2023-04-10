@@ -92,9 +92,9 @@ void	enemy_set_pic(t_enemy_ray *arr, size_t l, t_info *i, t_ray *ray)
 				((double)y - WIN_HEIGHT / 2) / WIN_HEIGHT * SIGHT_PITCH;
 			height = 0.5 + arr[a].len * cos(degree_to_radian(ray->yaw - i->player.yaw)) * tan(degree_to_radian(pitch));
 			if (height < 0 || 1 < height)
-				my_pixel_put(i->screens.enermy, ray->row_win, y, TRANSPARENT);
+				my_pixel_put(&i->screens.enermy, ray->row_win, y, TRANSPARENT);
 			else
-				my_pixel_put(i->screens.enermy, ray->row_win, y, my_pixel_get(arr[a].img, \
+				my_pixel_put(&i->screens.enermy, ray->row_win, y, my_pixel_get(arr[a].img, \
 				(int)round(arr[a].img_line * arr[a].img.width), height * (arr[a].img.height - 1)));
 			y++;
 		}
