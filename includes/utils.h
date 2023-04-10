@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:04:30 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:59:38 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ bool			is_char_in_str(int c, char *str);
 
 /* color.c */
 unsigned int	trgb_to_color(int transparency, int red, int green, int blue);
+
+/* pos.c */
+t_pos			assign_pos(double x, double y);
+
+/* count.c */
+size_t			count_split_size(char **str);
 
 #endif

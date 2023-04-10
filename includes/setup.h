@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:17:30 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:11:08 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:55:15 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	input_map(t_info *info, t_circ_list **map_list, char *line);
 
 /* convert.c */
 void	make_map_from_list(t_info *info, t_circ_list *map_list);
+
+/* convert_utils.c */
+void	allocate_map_info(t_info *info);
 void	clear_map(t_info *info);
 
 #endif

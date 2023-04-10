@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:36:56 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:11:44 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@
 
 /* enermy */
 # define ENERMY_IMGS 8
-# define ENEMY_FINND_TIME 0x400
+# define ENEMY_FIND_TIME 0x400
 # define ENEMY_FIRE_TIME 0x200
-# define ENEMY_FINND_LEN 16
-# define ENEMY_IMG_HIGHT 300
+# define ENEMY_FIND_LEN 16
+# define ENEMY_IMG_HEIGHT 300
 
 /* key value */
 # define KEY_ESC 53
@@ -167,7 +167,7 @@ typedef struct s_info
 	t_screen		screens;
 	t_character		player;
 	t_character		*enemy;
-	size_t			enermy_num;
+	size_t			enemy_num;
 	unsigned int	keys;
 }	t_info;
 

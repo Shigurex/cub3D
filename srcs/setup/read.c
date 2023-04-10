@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:57:47 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:11:48 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:07:20 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,22 @@ void	read_map_file(t_info *info, char *file_name)
 		exit_with_message("failed to open map file");
 	map_list = get_map_info(info, fd);
 	close(fd);
-	print_list(map_list);
 	make_map_from_list(info, map_list);
 	clear_list(&map_list);
+	printf("map:\n");
+	for (int i = (int)info->map_height - 1; i >= 0; i--)
+	{
+		for (int j = 0; j < (int)info->map_width; j++)
+		{
+			if (info->map[i][j].type == SPACE || info->map[i][j].type == NONE)
+				printf(" ");
+			else
+				printf("X");
+		}
+		printf("\n");
+	}
 	printf("width: %zu, height: %zu\n", info->map_width, info->map_height);
-	printf("starting point: (%f, %f), direction: %f\n", info->player.pos.x, info->player.pos.x, info->player.yaw);
-	(void)info;
+	printf("starting point: (%f, %f), direction: %f\n", info->player.pos.x, info->player.pos.y, info->player.yaw);
+	printf("%s, %d\n", __FILE__, __LINE__);
+	fflush(stdout);
 }

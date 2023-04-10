@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:07:26 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:20:32 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:55:00 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,35 @@ static void	validate_closed_map(t_info *info)
 		while (j < info->map_width)
 		{
 			if (info->map[i][j].type == SPACE || info->map[i][j].type == DOOR)
-			{
 				if (!is_next_closed(info, j, i))
 					exit_with_message("map file not closed");
-			}
 			j++;
 		}
 		i++;
 	}
 }
 
-static void	input_map_by_line(t_info *info, t_block *map_line, char *line)
+static void	input_enemy_info(t_info *info, char direction, size_t x, size_t y)
+{
+	static size_t	i;
+
+	info->enemy[i].is_alive = true;
+	info->enemy[i].pos = assign_pos(x, y);
+	info->enemy[i].pitch = 0;
+	info->enemy[i].time = 0;
+	if (direction == 'N')
+		info->enemy[i].yaw = NORTH;
+	else if (direction == 'S')
+		info->enemy[i].yaw = SOUTH;
+	else if (direction == 'W')
+		info->enemy[i].yaw = WEST;
+	else if (direction == 'E')
+		info->enemy[i].yaw = EAST;
+	i++;
+}
+
+static void	input_map_by_line(t_info *info, \
+	t_block *map_line, char *line, size_t y)
 {
 	size_t	i;
 	size_t	line_len;
@@ -65,6 +83,8 @@ static void	input_map_by_line(t_info *info, t_block *map_line, char *line)
 			map_line[i].type = WALL;
 		else if (line[i] == 'D')
 			map_line[i].type = DOOR;
+		if (i < line_len && is_char_in_str(line[i], "nswe"))
+			input_enemy_info(info, line[i], i, y);
 		i++;
 	}
 }
@@ -75,9 +95,7 @@ void	make_map_from_list(t_info *info, t_circ_list *map_list)
 	t_circ_list	*first_list;
 	size_t		i;
 
-	info->map = malloc(sizeof(t_block *) * info->map_height);
-	if (!info->map)
-		exit_with_message("failed to allocate memory");
+	allocate_map_info(info);
 	list = map_list;
 	if (!list)
 		return ;
@@ -86,29 +104,10 @@ void	make_map_from_list(t_info *info, t_circ_list *map_list)
 	i = 0;
 	while (list != first_list)
 	{
-		info->map[i] = malloc(sizeof(t_block) * info->map_width);
-		if (!info->map[i])
-			exit_with_message("failed to allocate memory");
-		input_map_by_line(info, info->map[i], list->str);
-		printf("%s\n", list->str);
+		input_map_by_line(info, info->map[i], list->str, i);
 		list = list->prev;
 		i++;
 	}
+	info->player.pos.y = info->map_height - info->player.pos.y;
 	validate_closed_map(info);
-}
-
-void	clear_map(t_info *info)
-{
-	t_block	**map;
-	size_t	i;
-
-	map = info->map;
-	i = 0;
-	while (i < info->map_height)
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-	info->map = NULL;
 }

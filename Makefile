@@ -20,12 +20,15 @@ SRC_NAME = main/main.c \
 	setup/textures.c \
 	setup/map.c \
 	setup/convert.c \
+	setup/convert_utils.c \
 	plot/plot.c \
 	utils/exit.c \
 	utils/free.c \
 	utils/color.c \
 	utils/list.c \
 	utils/string.c \
+	utils/pos.c \
+	utils/count.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

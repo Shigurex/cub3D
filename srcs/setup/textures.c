@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:26:50 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:39:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:59:06 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@ static void	set_xpm_img(t_info *info, t_img *img, char *relative_path)
 		&img->bpp, &img->size_l, &img->endian);
 	if (img->width == 0 || img->height == 0)
 		exit_with_message("failed to read image file");
-}
-
-static size_t	count_split_size(char **str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }
 
 static void	input_xpm_img(t_info *info, char **split_line)
@@ -83,7 +73,7 @@ static void	input_color(t_info *info, char **split_line)
 	int		blue;
 
 	colors = ft_split(split_line[1], ',');
-	if (count_split_size(colors) != 3) //neee
+	if (count_split_size(colors) != 3)
 		exit_with_message("invalid format for contents set at the color");
 	red = atoi_color(colors[0]);
 	green = atoi_color(colors[1]);

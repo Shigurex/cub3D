@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:26:34 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 15:10:03 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:05:15 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	validate_map_line(t_info *info, char *line)
 		if (is_char_in_str(line[i], "NSWE"))
 			set_start_pos(info, line[i], i, info->map_height);
 		else if (is_char_in_str(line[i], "nswe"))
-			;
+			info->enemy_num++;
 		else if (is_char_in_str(line[i], "01 D"))
 			;
 		else
