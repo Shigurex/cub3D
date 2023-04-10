@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:53:28 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:18:05 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@
 # define MINIMAP_SIZE 8
 
 /* setting */
-# define ROTATE_SPEED 0.5
-# define SPEED 0.1
+# define ROTATE_SPEED 5
+# define SPEED 0.2
 # define SIGHT_YAW 60
+# define SIGHT_PITCH 40
 
 /* parse */
 # define FILE_EXTENSION ".cub"

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:36:03 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:17:35 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	move_view(t_info *info)
 {
 	if (info->keys & ROTATE_LEFT)
-		info->player.yaw -= ROTATE_SPEED;
-	if (info->keys & ROTATE_RIGHT)
 		info->player.yaw += ROTATE_SPEED;
+	if (info->keys & ROTATE_RIGHT)
+		info->player.yaw -= ROTATE_SPEED;
 	info->player.yaw = convert_degree_within_two_pie(info->player.yaw);
 }
 

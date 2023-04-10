@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:21:26 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:01:11 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:02:32 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	setup_mlx(t_info *info)
 	mlx_hook(info->win, ON_KEYUP, 1L << 0, handle_key_release_action, info);
 	init_img(info, &info->screens.base, WIN_WIDTH, WIN_HEIGHT);
 	init_img(info, &info->screens.enermy, WIN_WIDTH, WIN_HEIGHT);
-	init_img(info, &info->screens.minimap, WIN_WIDTH, WIN_HEIGHT);
+	init_img(info, &info->screens.minimap, MINIMAP_WIDTH, MINIMAP_HEIGHT);
 	mlx_loop_hook(info->mlx, plot_screen, info);
 }
 
