@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:13:54 by blyu             ###   ########.fr       */
+/*   Updated: 2023/04/10 18:32:58 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include	<stdio.h>
 # include	<stdlib.h>
+# include	<math.h>
 # include	"define.h"
 
 /* exit.c */
@@ -37,13 +38,23 @@ unsigned int	trgb_to_color(int transparency, int red, int green, int blue);
 
 /* pos.c */
 t_pos			assign_pos(double x, double y);
+double			calculate_distance(t_pos pos1, t_pos pos2);
 
 /* count.c */
 size_t			count_split_size(char **str);
 
-/* solve_vector.c */
-t_pos   sVA_p_tVB_e_VC(t_pos va, t_pos  vb, t_pos  vc);
-t_pos   VA_p_sVB_e_tVC(t_pos va, t_pos  vb, t_pos  vc);
+/* sign.c */
+int				get_sign(double value);
 
+/* solve_vector.c */
+t_pos			sVA_p_tVB_e_VC(t_pos va, t_pos vb, t_pos vc);
+t_pos			VA_p_sVB_e_tVC(t_pos va, t_pos vb, t_pos vc);
+
+/* angle.c */
+double			convert_degree_within_two_pie(double degree);
+double			degree_to_radian(double degree);
+
+/* sign.c */
+int				get_sign(double value);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:10:28 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:53:28 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 # define MINIMAP_WIDTH 200
 # define MINIMAP_HEIGHT 200
 # define MINIMAP_SIZE 8
+
+/* setting */
+# define ROTATE_SPEED 0.5
+# define SPEED 0.1
+# define SIGHT_YAW 60
 
 /* parse */
 # define FILE_EXTENSION ".cub"
@@ -66,6 +71,12 @@ typedef enum e_type
 	NONE,
 	MAP_ERROR
 }	t_type;
+
+typedef enum e_axis
+{
+	HORIZONTAL,
+	VERTICAL
+}	t_axis;
 
 typedef enum e_direction
 {
@@ -162,9 +173,14 @@ typedef struct s_block
 
 typedef struct s_ray
 {
-	t_type	type;
-	double	yaw; // absolute value
-	double	distance;
+	t_type		type;
+	t_img		img;
+	int			img_col;
+	t_axis		axis;
+	t_pos		pos;
+	t_direction	direction;
+	double		yaw; // absolute value
+	double		distance;
 }	t_ray;
 
 typedef struct s_info

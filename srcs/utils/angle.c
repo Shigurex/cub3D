@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plot.c                                             :+:      :+:    :+:   */
+/*   angle.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 14:07:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:54:41 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/04 16:38:28 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/09 20:24:05 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"plot.h"
+#include	"utils.h"
 
-int	plot_screen(t_info *info)
+double	convert_degree_within_two_pie(double degree)
 {
-	move_view(info);
-	move_direction(info);
-	plot_base(info);
-	plot_minimap(info);
-	return (0);
+	degree = fmod(degree, 360);
+	if (degree <= 0)
+		degree = fmod(fmod(degree, 360) + 360, 360);
+	return (degree);
+}
+
+double	degree_to_radian(double degree)
+{
+	double	radian;
+
+	degree = convert_degree_within_two_pie(degree);
+	radian = degree / 360 * 2 * M_PI;
+	return (radian);
 }

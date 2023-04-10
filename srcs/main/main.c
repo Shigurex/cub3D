@@ -6,11 +6,17 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:56:05 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:12:33 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 19:33:09 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"cub3D.h"
+
+// __attribute__((destructor))
+// static void	end()
+// {
+// 	system("leaks -q cub3D");
+// }
 
 int	main(int argc, char **argv)
 {

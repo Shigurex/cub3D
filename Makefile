@@ -22,8 +22,12 @@ SRC_NAME = main/main.c \
 	setup/convert.c \
 	setup/convert_utils.c \
 	plot/plot.c \
+	plot/action.c \
 	plot/minimap.c \
+	plot/base.c \
 	plot/pixel_put.c \
+	raycasting/raycasting.c \
+	raycasting/raycasting_utils.c \
 	utils/exit.c \
 	utils/free.c \
 	utils/color.c \
@@ -31,6 +35,8 @@ SRC_NAME = main/main.c \
 	utils/string.c \
 	utils/pos.c \
 	utils/count.c \
+	utils/sign.c \
+	utils/angle.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

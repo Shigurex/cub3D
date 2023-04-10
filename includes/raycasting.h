@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plot.h                                             :+:      :+:    :+:   */
+/*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 14:06:31 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 18:50:32 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/10 17:48:39 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/10 18:21:52 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLOT_H
-# define PLOT_H
+#ifndef RAYCASTING_H
+# define RAYCASTING_H
 
 # include	<math.h>
-# include	<float.h>
 # include	"define.h"
 # include	"utils.h"
-# include	"raycasting.h"
 
-/* plot.h */
-int		plot_screen(t_info *info);
+/* raycasting.c */
+t_ray		check_intersection(t_info *info, double angle);
 
-/* base.c */
-void	plot_base(t_info *info);
-
-/* minimap.h */
-void	plot_minimap(t_info *info);
-
-/* action.c */
-void	move_view(t_info *info);
-void	move_direction(t_info *info);
-
-/* pixel_put.c */
-void	my_pixel_put(t_img *img, int x, int y, unsigned int color);
+/* raycasting_utils.c */
+t_axis		get_closer_axis(t_info *info, \
+	t_pos horizontal_ray, t_pos vertical_ray);
+t_type		get_bumped_block(t_info *info, \
+	t_pos ray, double angle, t_axis axis);
+t_img		get_wall_img(t_info *info, t_direction direction);
+t_direction	get_wall_direction(double angle, t_axis axis);
 
 #endif
