@@ -19,6 +19,7 @@ SRC_NAME = main/main.c \
 	setup/key.c \
 	setup/textures.c \
 	setup/map.c \
+	setup/convert.c \
 	plot/plot.c \
 	utils/exit.c \
 	utils/free.c \

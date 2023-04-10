@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:51:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:34:01 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:32:11 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	init_basic_info(t_info *info)
 	info->map_height = 0;
 	init_textures(info);
 	init_character(&info->player);
-	info->enermy = NULL;
+	info->enemy = NULL;
 	info->keys = CLEAR_ALL;
 }

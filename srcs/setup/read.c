@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:57:47 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:54:58 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:11:48 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	read_map_file(t_info *info, char *file_name)
 	map_list = get_map_info(info, fd);
 	close(fd);
 	print_list(map_list);
+	make_map_from_list(info, map_list);
 	clear_list(&map_list);
 	printf("width: %zu, height: %zu\n", info->map_width, info->map_height);
 	printf("starting point: (%f, %f), direction: %f\n", info->player.pos.x, info->player.pos.x, info->player.yaw);

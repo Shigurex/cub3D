@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:21:26 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:26:20 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:14:38 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 int	close_window(t_info *info)
 {
+	clear_map(info);
+	mlx_destroy_image(info->mlx, info->textures.north.address);
+	mlx_destroy_image(info->mlx, info->textures.south.address);
+	mlx_destroy_image(info->mlx, info->textures.west.address);
+	mlx_destroy_image(info->mlx, info->textures.east.address);
+	mlx_destroy_image(info->mlx, info->screens.base.address);
+	mlx_destroy_image(info->mlx, info->screens.enermy.address);
+	mlx_destroy_image(info->mlx, info->screens.minimap.address);
 	mlx_destroy_window(info->mlx, info->win);
 	exit(EXIT_SUCCESS);
 }

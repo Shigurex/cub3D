@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:15:03 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:36:56 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,13 @@ typedef struct s_block
 	t_type	type;
 }	t_block;
 
+typedef struct s_ray
+{
+	t_type	type;
+	double	yaw; // absolute value
+	double	distance;
+}	t_ray;
+
 typedef struct s_info
 {
 	void			*mlx;
@@ -159,7 +166,7 @@ typedef struct s_info
 	t_texture		textures;
 	t_screen		screens;
 	t_character		player;
-	t_character		*enermy;
+	t_character		*enemy;
 	size_t			enermy_num;
 	unsigned int	keys;
 }	t_info;
