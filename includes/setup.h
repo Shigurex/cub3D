@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:53:49 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 21:45:08 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 02:31:45 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 # define SETUP_H
 
 # include	<stdlib.h>
+# include	<math.h>
 # include	"define.h"
 # include	"parse.h"
 # include	"plot.h"
 
-# define ROTATE_SPEED 2
-# define SPEED 0.05
+# define ROTATE_SPEED 4
+# define ROTATE_SPEED_MOUSE 0.1
+# define SPEED 0.1
+# define FAST_SPEED 0.2
+
+# define MOUSE_MOVE_MAX 300
+# define MOUSE_MOVE_MIN 10
 
 # define HORIZONTAL_SIGHT_ANGLE 60
 # define VERTICAL_SIGHT_ANGLE 50
@@ -27,6 +33,10 @@
 # define HEIGHT 0.3
 
 # define ESC 53
+
+# define SHIFT 257
+
+# define SPACE 49
 
 # define LEFT 123
 # define RIGHT 124
@@ -53,7 +63,8 @@ typedef enum e_key_flag
 	MOVE_LEFT = 1 << 2,
 	MOVE_RIGHT = 1 << 3,
 	ROTATE_LEFT = 1 << 4,
-	ROTATE_RIGHT = 1 << 5
+	ROTATE_RIGHT = 1 << 5,
+	SPEED_UP = 1 << 6
 }	t_key_flag;
 
 /* setup.c */

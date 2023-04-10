@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:36:13 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 02:41:14 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:42:35 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ t_intersection	check_intersection(t_info *info, double angle)
 	intersection.type = get_bumped_block(info, \
 		intersection.pos, angle, intersection.axis);
 	intersection.distance = calculate_distance(info->player, intersection.pos);
+	intersection.distance_plot = intersection.distance * \
+		fabs(cos(angle - degree_to_radian(info->direction)));
 	intersection.direction = get_wall_direction(angle, intersection.axis);
 	intersection.xpm_img = get_wall_img(info, intersection.direction);
 	intersection.xpm_img_col = calculate_img_col(info, \

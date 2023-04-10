@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 00:21:22 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 18:27:37 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 02:33:44 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	handle_key_press_action(int keycode, t_info *info)
 		info->key_flag |= MOVE_BACKWORD;
 	else if (keycode == D)
 		info->key_flag |= MOVE_RIGHT;
+	else if (keycode == SHIFT)
+		info->key_flag |= SPEED_UP;
 	return (0);
 }
 
@@ -45,5 +47,7 @@ int	handle_key_release_action(int keycode, t_info *info)
 		info->key_flag &= ~MOVE_BACKWORD;
 	else if (keycode == D)
 		info->key_flag &= ~MOVE_RIGHT;
+	else if (keycode == SHIFT)
+		info->key_flag &= ~SPEED_UP;
 	return (0);
 }

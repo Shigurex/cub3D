@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 22:03:38 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 01:59:46 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_intersection
 	t_pos		pos;
 	t_axis		axis;
 	double		distance;
+	double		distance_plot;
 	t_direction	direction;
 	t_xpm_img	xpm_img;
 	int			xpm_img_col;

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 02:28:35 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 22:09:27 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/09 23:42:21 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ static void	plot_line(t_info *info, t_intersection intersection, int x)
 		elevation_angle = degree_to_radian(info->eye_angle + \
 			((double)i - WIN_HEIGHT / 2) / WIN_HEIGHT * VERTICAL_SIGHT_ANGLE);
 		intersection_height = HEIGHT + \
-			intersection.distance * tan(elevation_angle);
+			intersection.distance_plot * tan(elevation_angle);
 		if (intersection_height < 0)
 			my_pixel_put(&info->img, x, i, info->floor_color);
 		else if (intersection_height > 1)
 			my_pixel_put(&info->img, x, i, info->ceiling_color);
 		else
-			my_pixel_put(&info->img, x, i, get_img_color(&intersection.xpm_img, intersection.xpm_img_col, (intersection.xpm_img.height - 1) * intersection_height));
+			my_pixel_put(&info->img, x, i, get_img_color(&intersection.xpm_img, \
+				intersection.xpm_img_col, \
+				(intersection.xpm_img.height - 1) * intersection_height));
 		i++;
 	}
 }

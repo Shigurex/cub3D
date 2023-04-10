@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:54:45 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 18:27:00 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 02:06:59 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_setup(t_info *info)
 	mlx_hook(info->win, ON_DESTROY, 1L << 0, close_window, info);
 	mlx_hook(info->win, ON_KEYDOWN, 1L << 0, handle_key_press_action, info);
 	mlx_hook(info->win, ON_KEYUP, 1L << 0, handle_key_release_action, info);
+	mlx_mouse_hide();
 	init_img(info, &info->img, WIN_WIDTH, WIN_HEIGHT);
 	init_img(info, &info->minimap, MINIMAP_WIDTH, MINIMAP_HEIGHT);
 	info->key_flag = CLEAR_ALL;

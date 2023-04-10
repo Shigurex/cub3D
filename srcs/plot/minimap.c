@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 18:14:48 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 02:23:08 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ static t_pos	get_minimap_pos_from_ratio(t_info *info, \
 	return (pos);
 }
 
+//static bool	is_inside_circle(t_info *info, double radius, int x, int y)
+//{
+	
+//}
+
 static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 {
 	int	x;
@@ -31,7 +36,8 @@ static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 
 	x = floor(pos.x);
 	y = floor(pos.y);
-	if (x < 0 || (int)info->map_width <= x || y < 0 || (int)info->map_height <= y)
+	if (x < 0 || (int)info->map_width <= x
+		|| y < 0 || (int)info->map_height <= y)
 		return (SILVER);
 	else if (info->map[y][x].type == NONE)
 		return (SILVER);
@@ -59,24 +65,12 @@ void	plot_minimap(t_info *info)
 			pos = get_minimap_pos_from_ratio(info, \
 				(double)j / MINIMAP_WIDTH, (double)i / MINIMAP_HEIGHT);
 			//printf("(%f %f)\n", pos.x, pos.y);
-			(void)pos;
-			my_pixel_put(&info->minimap, j, i, get_color_of_minimap_pos(info, pos));
+			my_pixel_put(&info->minimap, j, i, \
+				get_color_of_minimap_pos(info, pos));
 			j++;
 		}
 		i++;
 	}
-	// for (double angle = 100; angle < 300; angle += 10) {
-	// 	t_intersection intersection = check_intersection(info, degree_to_radian(angle));
-	// 	printf("angle %f: %f %f\n", angle, intersection.pos.x, intersection.pos.y);
-	// 	printf("direction: %d\n", intersection.direction);
-	// 	printf("xpm_img_col: %d\n", intersection.xpm_img_col);
-	// 	//printf("%d, %d, %d, %d\n", info->north_xpm_img.width, info->south_xpm_img.width,info->west_xpm_img.width,info->east_xpm_img.width);
-	// 	//printf("distance: %f\n", intersection.distance);
-	// 	//printf("axis: %d\n", intersection.axis);
-	// 	//printf("type: %d\n\n", intersection.type);
-	// }
 	mlx_put_image_to_window(info->mlx, info->win, \
-		info->minimap.address, 20, 20);
-	//mlx_put_image_to_window(info->mlx, info->win, \
-	//	info->minimap.address, 20, 20);
+		info->minimap.address, WIN_WIDTH / 60, WIN_HEIGHT / 45);
 }
