@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: blyu <blyu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:59:38 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:13:54 by blyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,10 @@ t_pos			assign_pos(double x, double y);
 
 /* count.c */
 size_t			count_split_size(char **str);
+
+/* solve_vector.c */
+t_pos   sVA_p_tVB_e_VC(t_pos va, t_pos  vb, t_pos  vc);
+t_pos   VA_p_sVB_e_tVC(t_pos va, t_pos  vb, t_pos  vc);
+
 
 #endif
