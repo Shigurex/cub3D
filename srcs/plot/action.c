@@ -6,11 +6,30 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:17:35 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 21:54:09 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"plot.h"
+
+static void	handle_mouse_input(t_info *info)
+{
+	int		x;
+	int		y;
+	double	mouse_move_distance;
+
+	mlx_mouse_get_pos(info->win, &x, &y);
+	mouse_move_distance = (double)WIN_WIDTH / 2 - x;
+	if (mouse_move_distance > 100)
+		mouse_move_distance = 100;
+	else if (mouse_move_distance < -100)
+		mouse_move_distance = -100;
+	else if (-10 < mouse_move_distance
+		&& mouse_move_distance < 10)
+		mouse_move_distance = 0;
+	info->player.yaw += 0.5 * mouse_move_distance;
+	mlx_mouse_move(info->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
+}
 
 void	move_view(t_info *info)
 {
@@ -18,6 +37,7 @@ void	move_view(t_info *info)
 		info->player.yaw += ROTATE_SPEED;
 	if (info->keys & ROTATE_RIGHT)
 		info->player.yaw -= ROTATE_SPEED;
+	handle_mouse_input(info);
 	info->player.yaw = convert_degree_within_two_pie(info->player.yaw);
 }
 
