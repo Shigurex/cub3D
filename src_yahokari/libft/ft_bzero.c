@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/06 00:17:32 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/06 00:17:33 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
-
-#endif
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, '\0', n);
+}

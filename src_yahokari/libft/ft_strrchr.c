@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/07 20:21:21 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/10 21:44:21 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
 
-#endif
+	i = ft_strlen(s);
+	while (i > 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
+}

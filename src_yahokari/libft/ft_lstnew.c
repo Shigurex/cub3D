@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/07 20:21:21 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/19 22:13:45 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*lst;
 
-#endif
+	lst = malloc(sizeof(t_list));
+	if (lst == NULL)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
+}

@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/06 00:17:17 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/18 00:40:24 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
+void	*ft_memmove(void *dst, const void *src, size_t n)
+{
+	size_t	i;
 
-#endif
+	if (dst < src)
+	{
+		i = 0;
+		while (i < n)
+		{
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
+			i++;
+		}
+	}
+	if (dst > src)
+	{
+		i = n;
+		while (i > 0)
+		{
+			i--;
+			((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
+		}
+	}
+	return (dst);
+}

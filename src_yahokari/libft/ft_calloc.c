@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/06 00:17:34 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/18 00:36:32 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*memory;
 
-#endif
+	if (size > 0 && count > SIZE_MAX / size)
+		return (NULL);
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	memory = malloc(size * count);
+	if (memory == NULL)
+		return (NULL);
+	ft_bzero(memory, size * count);
+	return (memory);
+}

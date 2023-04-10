@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2022/04/05 21:14:38 by yahokari          #+#    #+#             */
+/*   Updated: 2022/04/18 00:11:54 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"libft.h"
 
-# include	"define.h"
-# include	"utils.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	size_t	len;
+	size_t	i;
 
-#endif
+	if (s == NULL)
+		return ;
+	len = ft_strlen(s);
+	i = 0;
+	while (i < len)
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}

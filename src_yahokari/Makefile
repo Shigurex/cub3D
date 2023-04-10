@@ -13,7 +13,27 @@ MINILIBX = libmlx.dylib
 MINILIBX_DIR = ./minilibx_mms_20200219
 
 SRC_NAME = main/main.c \
-	utils/exit.c
+	setup/setup.c \
+	setup/key.c \
+	parse/readfile.c \
+	parse/texture.c \
+	parse/map.c \
+	parse/convert.c \
+	plot/action.c \
+	plot/plot.c \
+	plot/view.c \
+	plot/minimap.c \
+	plot/pixel_put.c \
+	raycasting/raycasting.c \
+	raycasting/raycasting_utils.c \
+	utils/exit_error.c \
+	utils/safe_free.c \
+	utils/count.c \
+	utils/list.c \
+	utils/rgb_to_color.c \
+	utils/angle.c \
+	utils/pos.c \
+	utils/get_sign.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

@@ -5,27 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 22:56:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/09 20:34:05 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/10 10:56:05 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/10 12:16:55 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"define.h"
-#include	"parse.h"
-#include	"setup.h"
-#include	"plot.h"
-#include	"utils.h"
+#include	"cub3D.h"
 
 int	main(int argc, char **argv)
 {
 	t_info	info;
 
-	info.mlx = mlx_init();
+	(void)argv;
 	if (argc != 2)
 		exit_with_message("invalid number of arguments");
-	readfile(&info, argv[1]);
-	init_setup(&info);
-	plot_minimap(&info);
-	mlx_loop(info.mlx);
+	// init -> parse
+	// plot
+	// loop
 	return (0);
 }

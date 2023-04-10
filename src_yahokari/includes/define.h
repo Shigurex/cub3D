@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:02:28 by yahokari         ###   ########.fr       */
+/*   Created: 2023/03/29 22:56:58 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/10 01:59:46 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,40 @@
 # define DEFINE_H
 
 # include	<stdio.h>
-# include	<stdbool.h>
 # include	"../minilibx_mms_20200219/mlx.h"
-# include	"../libft/libft.h"
 
-/* window */
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 900
 
-/* key value */
-# define KEY_ESC 53
-# define KEY_SHIFT 257
-# define KEY_SPACE 49
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_W 13
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
+# define MINIMAP_WIDTH 200
+# define MINIMAP_HEIGHT 200
 
-/* key hook */
-# define ON_KEYDOWN 2
-# define ON_KEYUP 3
-# define ON_MOUSEDOWN 4
-# define ON_MOUSEUP 5
-# define ON_MOUSEMOVE 6
-# define ON_EXPOSE 12
-# define ON_DESTROY 17
+# define MINIMAP_SIZE 8
 
-# define ENERMY_IMGS 8
+# define FILE_EXTENSION ".cub"
 
 typedef enum e_type
 {
+	SPACE,
 	WALL,
 	DOOR,
-	SPACE,
 	NONE,
 	MAP_ERROR
 }	t_type;
 
 typedef enum e_direction
 {
-	EAST = 0,
-	NORTH_EAST = 45,
-	NORTH = 90,
-	NORTH_WEST = 135,
+	NORTH = 270,
+	SOUTH = 90,
 	WEST = 180,
-	SOUTH_WEST = 225,
-	SOUTH = 270,
-	SOUTH_EAST = 315
+	EAST = 0
 }	t_direction;
+
+typedef enum e_axis
+{
+	VERTICAL,
+	HORIZONTAL
+}	t_axis;
 
 typedef struct s_circ_list
 {
@@ -75,32 +59,22 @@ typedef struct s_circ_list
 typedef struct s_img
 {
 	void	*address;
-	int		width;
-	int		height;
 	char	*data;
 	int		size_l;
 	int		bpp;
 	int		endian;
 }	t_img;
 
-typedef struct s_texture
+typedef struct s_xpm_img
 {
-	t_img			north;
-	t_img			south;
-	t_img			west;
-	t_img			east;
-	unsigned int	ceiling;
-	unsigned int	floor;
-	t_img			door;
-	t_img			enermy[ENERMY_IMGS];
-}	t_texture;
-
-typedef struct s_screen
-{
-	t_img		base;
-	t_img		enermy;
-	t_img		minimap;
-}	t_screen;
+	void	*address;
+	char	*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
+	int		width;
+	int		height;
+}	t_xpm_img;
 
 typedef struct s_pos
 {
@@ -108,30 +82,45 @@ typedef struct s_pos
 	double	y;
 }	t_pos;
 
-typedef struct s_character
+typedef struct s_intersection
 {
-	bool	is_alive;
-	t_pos	pos;
-	double	yaw; //横(mapとかの表示用)
-	double	pitch; //縦(視野の上下用)
-	size_t	time;
-}	t_character;
+	t_type		type;
+	t_pos		pos;
+	t_axis		axis;
+	double		distance;
+	double		distance_plot;
+	t_direction	direction;
+	t_xpm_img	xpm_img;
+	int			xpm_img_col;
+}	t_intersection;
 
 typedef struct s_block
 {
 	t_type	type;
+	t_pos	begin;
+	t_pos	end;
 }	t_block;
 
 typedef struct s_info
 {
 	void			*mlx;
 	void			*win;
-	t_texture		textures;
-	t_screen		screens;
+	t_img			img;
+	t_img			minimap;
+	t_pos			player;
+	double			direction;
+	double			eye_angle;
 	t_block			**map;
-	t_character		player;
-	t_character		*enermy;
-	unsigned int	keys;
+	t_circ_list		*map_list;
+	size_t			map_width;
+	size_t			map_height;
+	t_xpm_img		north_xpm_img;
+	t_xpm_img		south_xpm_img;
+	t_xpm_img		west_xpm_img;
+	t_xpm_img		east_xpm_img;
+	unsigned int	floor_color;
+	unsigned int	ceiling_color;
+	unsigned int	key_flag;
 }	t_info;
 
 #endif
