@@ -2,7 +2,7 @@
 #include "define.h"
 #include <math.h>
 
-t_pos get_enemy_row(t_character *a_enemy, t_ray *ray, t_info *i)
+t_pos enemy_lay_info(t_character *a_enemy, t_ray *ray, t_info *i)
 {
 	t_pos	p_img_v;
 	t_pos	img_row_v;
@@ -16,3 +16,4 @@ t_pos get_enemy_row(t_character *a_enemy, t_ray *ray, t_info *i)
 	img_row_v.y = 1.0 / tan(fmod(ray->yaw + 90, 360)/ 180.0);
 	return (VA_p_sVB_e_tVC(p_img_v, img_row_v, ray_v));
 }
+
