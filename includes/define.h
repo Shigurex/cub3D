@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:11:44 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:10:28 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 /* window */
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 900
+
+/* minimap */
+# define MINIMAP_WIDTH 200
+# define MINIMAP_HEIGHT 200
+# define MINIMAP_SIZE 8
 
 /* parse */
 # define FILE_EXTENSION ".cub"
@@ -77,7 +82,13 @@ typedef enum e_direction
 typedef enum e_color
 {
 	BLACK = 0x00000000,
-	TRANSPARENT = 0xFF000000
+	TRANSPARENT = 0xFF000000,
+	WHITE = 0x00FFFFFF,
+	RED = 0x00FF0000,
+	GREEN = 0x0000FF00,
+	BLUE = 0x000000FF,
+	GRAY = 0x00808080,
+	SILVER = 0x00C0C0C0,
 }	t_color;
 
 typedef enum e_key_action

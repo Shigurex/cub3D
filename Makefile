@@ -22,6 +22,8 @@ SRC_NAME = main/main.c \
 	setup/convert.c \
 	setup/convert_utils.c \
 	plot/plot.c \
+	plot/minimap.c \
+	plot/pixel_put.c \
 	utils/exit.c \
 	utils/free.c \
 	utils/color.c \

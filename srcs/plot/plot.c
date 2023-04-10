@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:07:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 14:08:46 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:12:15 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	plot_screen(t_info *info)
 {
-	(void)info;
+	plot_minimap(info);
 	return (0);
 }

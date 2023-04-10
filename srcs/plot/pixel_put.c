@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plot.h                                             :+:      :+:    :+:   */
+/*   pixel_put.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 14:06:31 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 17:13:46 by yahokari         ###   ########.fr       */
+/*   Created: 2023/03/30 01:01:24 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/04 17:40:02 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLOT_H
-# define PLOT_H
+#include	"plot.h"
 
-# include	<math.h>
-# include	"define.h"
-# include	"utils.h"
+void	my_pixel_put(t_img *img, int x, int y, unsigned int color)
+{
+	void	*dst;
 
-/* plot.h */
-int		plot_screen(t_info *info);
-
-/* minimap.h */
-void	plot_minimap(t_info *info);
-
-/* pixel_put.c */
-void	my_pixel_put(t_img *img, int x, int y, unsigned int color);
-
-#endif
+	dst = img->data + (y * img->size_l + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
+}
