@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:02:28 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:15:03 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@
 /* window */
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 900
+
+/* parse */
+# define FILE_EXTENSION ".cub"
+# define OPEN_ERR -1
+
+/* enermy */
+# define ENERMY_IMGS 8
+# define ENEMY_FINND_TIME 0x400
+# define ENEMY_FIRE_TIME 0x200
+# define ENEMY_FINND_LEN 16
+# define ENEMY_IMG_HIGHT 300
 
 /* key value */
 # define KEY_ESC 53
@@ -42,8 +53,6 @@
 # define ON_EXPOSE 12
 # define ON_DESTROY 17
 
-# define ENERMY_IMGS 8
-
 typedef enum e_type
 {
 	WALL,
@@ -64,6 +73,24 @@ typedef enum e_direction
 	SOUTH = 270,
 	SOUTH_EAST = 315
 }	t_direction;
+
+typedef enum e_color
+{
+	BLACK = 0x00000000,
+	TRANSPARENT = 0xFF000000
+}	t_color;
+
+typedef enum e_key_action
+{
+	CLEAR_ALL = 0,
+	MOVE = 1111 << 0,
+	MOVE_FORWARD = 1 << 0,
+	MOVE_BACKWARD = 1 << 1,
+	MOVE_LEFT = 1 << 2,
+	MOVE_RIGHT = 1 << 3,
+	ROTATE_LEFT = 1 << 4,
+	ROTATE_RIGHT = 1 << 5,
+}	t_key_action;
 
 typedef struct s_circ_list
 {
@@ -126,11 +153,14 @@ typedef struct s_info
 {
 	void			*mlx;
 	void			*win;
+	t_block			**map;
+	size_t			map_width;
+	size_t			map_height;
 	t_texture		textures;
 	t_screen		screens;
-	t_block			**map;
 	t_character		player;
 	t_character		*enermy;
+	size_t			enermy_num;
 	unsigned int	keys;
 }	t_info;
 

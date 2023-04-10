@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   plot.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 12:05:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 12:05:42 by yahokari         ###   ########.fr       */
+/*   Created: 2023/04/10 14:07:04 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/10 14:08:46 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include	"plot.h"
 
-# include	"define.h"
-# include	"utils.h"
-
-#endif
+int	plot_screen(t_info *info)
+{
+	(void)info;
+	return (0);
+}

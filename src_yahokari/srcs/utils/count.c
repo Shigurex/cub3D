@@ -6,18 +6,8 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 21:25:36 by yahokari          #+#    #+#             */
-/*   Updated: 2023/03/31 21:28:00 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:35:45 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"utils.h"
-
-size_t	count_split_size(char **str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}

@@ -13,7 +13,18 @@ MINILIBX = libmlx.dylib
 MINILIBX_DIR = ./minilibx_mms_20200219
 
 SRC_NAME = main/main.c \
-	utils/exit.c
+	setup/setup.c \
+	setup/init.c \
+	setup/read.c \
+	setup/key.c \
+	setup/textures.c \
+	setup/map.c \
+	plot/plot.c \
+	utils/exit.c \
+	utils/free.c \
+	utils/color.c \
+	utils/list.c \
+	utils/string.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
