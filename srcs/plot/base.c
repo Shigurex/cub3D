@@ -33,9 +33,7 @@ static void	plot_line(t_info *info, t_ray *ray, int x)
 	double	pic_l;
 	int		d;
 
-if (test)
-{Td(ray->img.height)}
-	pic_l = tan((SIGHT_PITCH / 360.0) * M_PI) * ray->distance * 2 / ray->img.height;
+	pic_l = cos(((info->player.yaw - ray->yaw) / 180.0) * M_PI) * ray->distance * 2 * ray->img.height / 40 / 40;
 	d = WIN_HEIGHT / 2 - 1;
 	y = ray->img.height / 2 - MINI_NUM;
 	while (d >= 0)
@@ -104,20 +102,9 @@ void	plot_base(t_info *info)
 	x = 0;
 	while (x < WIN_WIDTH)
 	{
-if (x == WIN_WIDTH / 2)
-	test = true;
-else
-	test = false;
 		yaw = info->player.yaw + \
 			(WIN_WIDTH / 2 - (double)x) / WIN_WIDTH * SIGHT_YAW;
 		ray = check_intersection(info, yaw);
-if (test)
-{
-Td(ray.yaw)
-Td(ray.distance)
-Td(ray.img.height)
-Td(ray.img.width)
-}
 		ray.row_win = x;
 		plot_line(info, &ray, x);//なんか重い
 		x++;
