@@ -12,11 +12,14 @@
 
 #ifndef DEFINE_H
 # define DEFINE_H
+#include "debug.h"//------------------------test
 
 # include	<stdio.h>
 # include	<stdbool.h>
 # include	"../minilibx_mms_20200219/mlx.h"
 # include	"../libft/libft.h"
+
+# define MINI_NUM 0.000000000000001
 
 /* window */
 # define WIN_WIDTH 1200

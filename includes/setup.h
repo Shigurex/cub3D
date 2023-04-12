@@ -12,6 +12,7 @@
 
 #ifndef SETUP_H
 # define SETUP_H
+#include "debug.h"//------------------------test
 
 # include	<fcntl.h>
 # include	"define.h"

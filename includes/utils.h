@@ -12,6 +12,7 @@
 
 #ifndef UTILS_H
 # define UTILS_H
+#include "debug.h"//------------------------test
 
 # include	<stdio.h>
 # include	<stdlib.h>

@@ -12,6 +12,7 @@
 
 #ifndef PLOT_H
 # define PLOT_H
+#include "debug.h"//------------------------test
 
 # include	<math.h>
 # include	<float.h>
@@ -34,6 +35,6 @@ void			move_direction(t_info *info);
 
 /* pixel_put.c */
 void			my_pixel_put(t_img *img, int x, int y, unsigned int color);
-unsigned int	my_pixel_get(t_img img, int x, int y);
+unsigned int	my_pixel_get(t_img *img, int x, int y);
 
 #endif

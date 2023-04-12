@@ -12,6 +12,7 @@
 
 #ifndef CUB3D_H
 # define CUB3D_H
+#include "debug.h"//------------------------test
 
 # include	"define.h"
 # include	"utils.h"

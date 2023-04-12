@@ -12,6 +12,7 @@
 
 #ifndef RAYCASTING_H
 # define RAYCASTING_H
+#include "debug.h"//------------------------test
 
 # include	<math.h>
 # include	"define.h"

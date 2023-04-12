@@ -20,10 +20,10 @@ void	my_pixel_put(t_img *img, int x, int y, unsigned int color)
 	*(unsigned int *)dst = color;
 }
 
-unsigned int	my_pixel_get(t_img img, int x, int y)
+unsigned int	my_pixel_get(t_img *img, int x, int y)
 {
 	void	*dst;
 
-	dst = img.data + (y * img.size_l + x * (img.bpp / 8));
+	dst = img->data + (y * img->size_l + x * (img->bpp / 8));
 	return (*(unsigned int *)dst);
 }
