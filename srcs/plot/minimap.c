@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 11:31:49 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:18:05 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,27 @@ static t_pos	get_minimap_pos_from_ratio(t_info *info, \
 
 static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	double	x_range;
+	double	y_range;
 
 	x = floor(pos.x);
 	y = floor(pos.y);
+	x_range = (double)MINIMAP_SIZE / MINIMAP_WIDTH;
+	y_range = (double)MINIMAP_SIZE / MINIMAP_HEIGHT;
 	if (x < 0 || (int)info->map_width <= x
 		|| y < 0 || (int)info->map_height <= y)
 		return (SILVER);
 	else if (info->map[y][x].type == NONE)
 		return (SILVER);
-	else if ((info->player.pos.x - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.x && pos.x <= info->player.pos.x + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)) && (info->player.pos.y - ((double)MINIMAP_SIZE / MINIMAP_HEIGHT) <= pos.y && pos.y <= info->player.pos.y + ((double)MINIMAP_SIZE / MINIMAP_HEIGHT)))
+	else if ((info->player.pos.x - x_range <= pos.x
+			&& pos.x <= info->player.pos.x + x_range)
+		&& (info->player.pos.y - y_range <= pos.y
+			&& pos.y <= info->player.pos.y + y_range))
 		return (BLACK);
-	else if (((double)x - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.x && pos.x <= (double)x + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)) || ((double)y - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.y && pos.y <= (double)y + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)))
+	else if (((double)x - x_range <= pos.x && pos.x <= (double)x + x_range)
+		|| ((double)y - y_range <= pos.y && pos.y <= (double)y + y_range))
 		return (BLACK);
 	else if (info->map[y][x].type == WALL)
 		return (GRAY);

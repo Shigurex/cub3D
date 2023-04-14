@@ -6,13 +6,13 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 09:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 10:43:25 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:26:45 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-t_pos	sVA_p_tVB_e_VC(t_pos va, t_pos vb, t_pos vc)
+t_pos	sva_p_tvb_e_vc(t_pos va, t_pos vb, t_pos vc)
 {
 	double	matrix[6];
 	t_pos	r;
@@ -29,7 +29,7 @@ t_pos	sVA_p_tVB_e_VC(t_pos va, t_pos vb, t_pos vc)
 	return (r);
 }
 
-t_pos	VA_p_sVB_e_tVC(t_pos va, t_pos vb, t_pos vc)
+t_pos	va_p_svb_e_tvc(t_pos va, t_pos vb, t_pos vc)
 {
 	double	matrix[6];
 	t_pos	r;

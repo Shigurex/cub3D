@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 10:42:40 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:26:48 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ size_t			count_split_size(char **str);
 int				get_sign(double value);
 
 /* solve_vector.c */
-t_pos			sVA_p_tVB_e_VC(t_pos va, t_pos vb, t_pos vc);
-t_pos			VA_p_sVB_e_tVC(t_pos va, t_pos vb, t_pos vc);
+t_pos			sva_p_tvb_e_vc(t_pos va, t_pos vb, t_pos vc);
+t_pos			va_p_svb_e_tvc(t_pos va, t_pos vb, t_pos vc);
 
 /* angle.c */
 double			convert_degree_within_two_pie(double degree);
