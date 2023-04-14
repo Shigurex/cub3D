@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:33:32 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 11:26:50 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@
 
 /* minimap */
 # define MINIMAP_WIDTH 200
-# define MINIMAP_HEIGHT 200
+# define MINIMAP_HEIGHT MINIMAP_WIDTH
 # define MINIMAP_SIZE 8
 
 /* setting */
 # define ROTATE_SPEED 5
-# define SPEED 0.2
+# define SPEED 0.05
 # define SIGHT_YAW 60
 # define SIGHT_PITCH 40
+# define MAX_MOUSE_MOVE 100
+# define MIN_MOUSE_MOVE 3
 
 /* parse */
 # define FILE_EXTENSION ".cub"

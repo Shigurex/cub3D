@@ -1,24 +1,18 @@
-#include <stddef.h>
-#include "debug.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gaussian_elimination.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/14 10:39:20 by yahokari          #+#    #+#             */
+/*   Updated: 2023/04/14 10:42:38 by yahokari         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void set_line(double *matrix, size_t line, size_t row, size_t target);
-static void reflect_line(double *matrix, size_t line, size_t row, size_t target);
+#include	<utils.h>
 
-int Gaussian_elimination(double *matrix, size_t line, size_t row)
-{
-	size_t	r;
-
-	r = 0;
-	while (r < row)
-	{
-		set_line(matrix, line, row, r);
-		reflect_line(matrix, line, row, r);
-		r++;
-	}
-	return (0);
-}
-
-static void set_line(double *matrix, size_t line, size_t row, size_t target)
+static void	set_line(double *matrix, size_t line, size_t target)
 {
 	size_t	l;
 
@@ -32,10 +26,10 @@ static void set_line(double *matrix, size_t line, size_t row, size_t target)
 	matrix[target * line + target] = 1;
 }
 
-static void reflect_line(double *matrix, size_t line, size_t row, size_t target)
+static void	reflect_line(double *matrix, size_t line, size_t row, size_t target)
 {
-	size_t r;
-	size_t l;
+	size_t	r;
+	size_t	l;
 
 	r = !target;
 	while (r < row)
@@ -51,6 +45,21 @@ static void reflect_line(double *matrix, size_t line, size_t row, size_t target)
 		if (r == target)
 			r++;
 	}
+}
+
+
+int	gaussian_elimination(double *matrix, size_t line, size_t row)
+{
+	size_t	r;
+
+	r = 0;
+	while (r < row)
+	{
+		set_line(matrix, line, r);
+		reflect_line(matrix, line, row, r);
+		r++;
+	}
+	return (0);
 }
 
 

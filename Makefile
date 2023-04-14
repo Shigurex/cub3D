@@ -37,6 +37,8 @@ SRC_NAME = main/main.c \
 	utils/count.c \
 	utils/sign.c \
 	utils/angle.c \
+	utils/solve_vector.c \
+	utils/gaussian_elimination.c \
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC_NAME))
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:54:09 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:31:53 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	handle_mouse_input(t_info *info)
 
 	mlx_mouse_get_pos(info->win, &x, &y);
 	mouse_move_distance = (double)WIN_WIDTH / 2 - x;
-	if (mouse_move_distance > 100)
-		mouse_move_distance = 100;
-	else if (mouse_move_distance < -100)
-		mouse_move_distance = -100;
-	else if (-10 < mouse_move_distance
-		&& mouse_move_distance < 10)
+	if (mouse_move_distance > MAX_MOUSE_MOVE)
+		mouse_move_distance = MAX_MOUSE_MOVE;
+	else if (mouse_move_distance < -MAX_MOUSE_MOVE)
+		mouse_move_distance = -MAX_MOUSE_MOVE;
+	else if (-MIN_MOUSE_MOVE < mouse_move_distance
+		&& mouse_move_distance < MIN_MOUSE_MOVE)
 		mouse_move_distance = 0;
 	info->player.yaw += 0.5 * mouse_move_distance;
 	mlx_mouse_move(info->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);

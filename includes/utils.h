@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 18:32:58 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 10:42:40 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include	<stdio.h>
 # include	<stdlib.h>
 # include	<math.h>
+# include	<stddef.h>
 # include	"define.h"
 
 /* exit.c */
@@ -57,5 +58,8 @@ double			degree_to_radian(double degree);
 
 /* sign.c */
 int				get_sign(double value);
+
+/* gaussian_elimination */
+int				gaussian_elimination(double *matrix, size_t line, size_t row);
 
 #endif

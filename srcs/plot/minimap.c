@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:30:27 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 11:31:49 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 		return (SILVER);
 	else if (info->map[y][x].type == NONE)
 		return (SILVER);
-	else if ((info->player.pos.x - 0.05 <= pos.x && pos.x <= info->player.pos.x + 0.05) && (info->player.pos.y - 0.05 <= pos.y && pos.y <= info->player.pos.y + 0.05))
+	else if ((info->player.pos.x - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.x && pos.x <= info->player.pos.x + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)) && (info->player.pos.y - ((double)MINIMAP_SIZE / MINIMAP_HEIGHT) <= pos.y && pos.y <= info->player.pos.y + ((double)MINIMAP_SIZE / MINIMAP_HEIGHT)))
 		return (BLACK);
-	else if (((double)x - 0.03 <= pos.x && pos.x <= (double)x + 0.03) || ((double)y - 0.03 <= pos.y && pos.y <= (double)y + 0.03))
+	else if (((double)x - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.x && pos.x <= (double)x + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)) || ((double)y - ((double)MINIMAP_SIZE / MINIMAP_WIDTH) <= pos.y && pos.y <= (double)y + ((double)MINIMAP_SIZE / MINIMAP_WIDTH)))
 		return (BLACK);
 	else if (info->map[y][x].type == WALL)
 		return (GRAY);
