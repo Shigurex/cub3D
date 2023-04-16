@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 21:39:23 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/17 00:09:25 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define KEY_ENTER 36
 
 /* key hook */
 # define ON_KEYDOWN 2
@@ -121,13 +122,14 @@ typedef enum e_color
 typedef enum e_key_action
 {
 	CLEAR_ALL = 0,
-	MOVE = 1111 << 0,
+	MOVE = 0b1111 << 0,
 	MOVE_FORWARD = 1 << 0,
 	MOVE_BACKWARD = 1 << 1,
 	MOVE_LEFT = 1 << 2,
 	MOVE_RIGHT = 1 << 3,
 	ROTATE_LEFT = 1 << 4,
 	ROTATE_RIGHT = 1 << 5,
+	START = 1 << 6,
 }	t_key_action;
 
 typedef struct s_circ_list
