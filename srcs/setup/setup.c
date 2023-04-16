@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:21:26 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 18:46:32 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:08:20 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	close_window(t_info *info)
 	mlx_destroy_image(info->mlx, info->textures.arms[LEFT_ARM_1].address);
 	mlx_destroy_image(info->mlx, info->textures.arms[LEFT_ARM_2].address);
 	mlx_destroy_image(info->mlx, info->textures.arms[LEFT_ARM_3].address);
+	mlx_destroy_image(info->mlx, info->textures.door.address);
 	mlx_destroy_window(info->mlx, info->win);
 	exit(EXIT_SUCCESS);
 }

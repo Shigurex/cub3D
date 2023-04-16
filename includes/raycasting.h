@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:48:39 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 18:42:37 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:36:42 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ t_img		get_wall_img(t_info *info, t_direction direction);
 t_direction	get_wall_direction(double angle, t_axis axis);
 
 /* door.c */
-bool		is_door_hit(t_info *info, t_pos *ray, t_block block);
+bool		is_door_hit(t_info *info, t_ray *ray, t_block block);
 
 #endif

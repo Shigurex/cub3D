@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:51:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 17:57:27 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:08:01 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	init_textures(t_info *info)
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arm10.xpm");
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arm11.xpm");
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arm12.xpm");
+	set_xpm_img(info, &info->textures.door, "./imgs/door.xpm");
 }
 
 static void	init_character(t_character *character)
