@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 LDFLAGS =  -Wshadow -Imlx
 INCLUDES = -I ./includes
 
@@ -25,9 +25,11 @@ SRC_NAME = main/main.c \
 	plot/action.c \
 	plot/minimap.c \
 	plot/base.c \
+	plot/arms.c \
 	plot/pixel_put.c \
 	raycasting/raycasting.c \
 	raycasting/raycasting_utils.c \
+	raycasting/door.c \
 	utils/exit.c \
 	utils/free.c \
 	utils/color.c \

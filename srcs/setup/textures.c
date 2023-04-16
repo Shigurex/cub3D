@@ -6,13 +6,13 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:26:50 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:59:06 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:54:27 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"setup.h"
 
-static void	set_xpm_img(t_info *info, t_img *img, char *relative_path)
+void	set_xpm_img(t_info *info, t_img *img, char *relative_path)
 {
 	img->address = mlx_xpm_file_to_image(info->mlx, relative_path, \
 		&img->width, &img->height);

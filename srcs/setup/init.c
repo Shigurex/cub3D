@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:51:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:05:23 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:57:27 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ static void	init_textures(t_info *info)
 	info->textures.east.address = NULL;
 	info->textures.ceiling = TRANSPARENT;
 	info->textures.floor = TRANSPARENT;
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_1], "./imgs/arm00.xpm");
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_2], "./imgs/arm01.xpm");
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_3], "./imgs/arm02.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arm10.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arm11.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arm12.xpm");
 }
 
 static void	init_character(t_character *character)
 {
-	character->is_alive = false;
 	character->pos.x = 0;
 	character->pos.y = 0;
 	character->yaw = 0;
@@ -50,7 +55,5 @@ void	init_basic_info(t_info *info)
 	info->map_height = 0;
 	init_textures(info);
 	init_character(&info->player);
-	info->enemy = NULL;
-	info->enemy_num = 0;
 	info->keys = CLEAR_ALL;
 }

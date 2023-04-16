@@ -6,11 +6,16 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 09:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 15:26:45 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/15 23:14:07 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+t_pos	va_m_vb(t_pos va, t_pos vb)
+{
+	return (assign_pos(va.x - vb.x, va.y - vb.y));
+}
 
 t_pos	sva_p_tvb_e_vc(t_pos va, t_pos vb, t_pos vc)
 {
@@ -41,8 +46,8 @@ t_pos	va_p_svb_e_tvc(t_pos va, t_pos vb, t_pos vc)
 	matrix[4] = -vc.y;
 	matrix[5] = -va.y;
 	gaussian_elimination(matrix, 3, 2);
-	r.x = matrix[2];
-	r.y = matrix[5];
+	r.x = matrix[2]; //s
+	r.y = matrix[5]; //t
 	return (r);
 }
 

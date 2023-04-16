@@ -6,13 +6,12 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 11:26:50 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:53:29 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
-#include "debug.h"//------------------------test
 
 # include	<stdio.h>
 # include	<stdbool.h>
@@ -37,6 +36,7 @@
 # define SIGHT_PITCH 40
 # define MAX_MOUSE_MOVE 100
 # define MIN_MOUSE_MOVE 3
+# define ARMS 6
 
 /* parse */
 # define FILE_EXTENSION ".cub"
@@ -83,6 +83,16 @@ typedef enum e_axis
 	HORIZONTAL,
 	VERTICAL
 }	t_axis;
+
+typedef enum e_arm
+{
+	RIGHT_ARM_1 = 0,
+	RIGHT_ARM_2 = 1,
+	RIGHT_ARM_3 = 2,
+	LEFT_ARM_1 = 3,
+	LEFT_ARM_2 = 4,
+	LEFT_ARM_3 = 5,
+}	t_arm;
 
 typedef enum e_direction
 {
@@ -147,13 +157,12 @@ typedef struct s_texture
 	unsigned int	ceiling;
 	unsigned int	floor;
 	t_img			door;
-	t_img			enermy[ENERMY_IMGS];
+	t_img			arms[ARMS];
 }	t_texture;
 
 typedef struct s_screen
 {
 	t_img		base;
-	t_img		enermy;
 	t_img		minimap;
 }	t_screen;
 
@@ -165,7 +174,6 @@ typedef struct s_pos
 
 typedef struct s_character
 {
-	bool	is_alive;
 	t_pos	pos;
 	double	yaw; //横(mapとかの表示用)
 	double	pitch; //縦(視野の上下用)
@@ -175,6 +183,8 @@ typedef struct s_character
 typedef struct s_block
 {
 	t_type	type;
+	t_pos	door_begin;
+	t_pos	door_end;
 }	t_block;
 
 typedef struct s_ray
@@ -200,8 +210,6 @@ typedef struct s_info
 	t_texture		textures;
 	t_screen		screens;
 	t_character		player;
-	t_character		*enemy;
-	size_t			enemy_num;
 	unsigned int	keys;
 }	t_info;
 

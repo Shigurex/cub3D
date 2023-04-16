@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:06:35 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:15:03 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:25:49 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ static t_pos	calculate_bumped_block_pos(t_pos ray, double angle, t_axis axis)
 	return (block_pos);
 }
 
-t_type	get_bumped_block(t_info *info, t_pos ray, double angle, t_axis axis)
+t_block	get_bumped_block(t_info *info, t_pos ray, double angle, t_axis axis)
 {
 	t_pos	block_pos;
+	t_block	error_block;
 
+	error_block.type = MAP_ERROR;
 	block_pos = calculate_bumped_block_pos(ray, angle, axis);
 	if (block_pos.x < 0 || info->map_width < block_pos.x + 1
 		|| block_pos.y < 0 || info->map_height < block_pos.y + 1)
-		return (MAP_ERROR);
-	return (info->map[(size_t)block_pos.y][(size_t)block_pos.x].type);
+		return (error_block);
+	return (info->map[(size_t)block_pos.y][(size_t)block_pos.x]);
 }
 
 t_axis	get_closer_axis(t_info *info, \

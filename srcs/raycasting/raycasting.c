@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:49:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:30:09 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:38:29 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_pos	check_horizontal_intersection(t_info *info, double angle)
 {
 	t_pos	ray;
-	t_type	block;
+	t_block	block;
 	int		sign;
 	double	dy;
 
@@ -32,8 +32,8 @@ static t_pos	check_horizontal_intersection(t_info *info, double angle)
 	while (true)
 	{
 		block = get_bumped_block(info, ray, angle, HORIZONTAL);
-		if (block == WALL || block == NONE || block == MAP_ERROR
-			|| (block == DOOR && false)) //need modified
+		if (block.type == WALL || block.type == NONE || block.type == MAP_ERROR
+			|| (block.type == DOOR && is_door_hit(info, &ray, block)))
 			break ;
 		ray = assign_pos(ray.x + sign * 1 / tan(angle), ray.y + sign);
 	}
@@ -43,7 +43,7 @@ static t_pos	check_horizontal_intersection(t_info *info, double angle)
 static t_pos	check_vertical_intersection(t_info *info, double angle)
 {
 	t_pos	ray;
-	t_type	block;
+	t_block	block;
 	int		sign;
 	double	dx;
 
@@ -61,8 +61,8 @@ static t_pos	check_vertical_intersection(t_info *info, double angle)
 	while (true)
 	{
 		block = get_bumped_block(info, ray, angle, VERTICAL);
-		if (block == WALL || block == NONE || block == MAP_ERROR
-			|| (block == DOOR && false)) //need modified
+		if (block.type == WALL || block.type == NONE || block.type == MAP_ERROR
+			|| (block.type == DOOR && is_door_hit(info, &ray, block)))
 			break ;
 		ray = assign_pos(ray.x + sign, ray.y + sign * tan(angle));
 	}
@@ -96,7 +96,7 @@ t_ray	check_intersection(t_info *info, double angle)
 		ray.pos = vertical_ray;
 	else if (ray.axis == HORIZONTAL)
 		ray.pos = horizontal_ray;
-	ray.type = get_bumped_block(info, ray.pos, angle_radian, ray.axis);
+	ray.type = get_bumped_block(info, ray.pos, angle_radian, ray.axis).type;
 	ray.distance = calculate_distance(info->player.pos, ray.pos);
 	ray.yaw = angle;
 	ray.direction = get_wall_direction(angle_radian, ray.axis);

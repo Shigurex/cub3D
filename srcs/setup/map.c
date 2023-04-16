@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:26:34 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:05:15 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:59:04 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	get_map_line(char *line)
 	{
 		if (line[i] == ' ' || line[i] == '\0')
 			last_not_of_valid_chars = &line[i];
-		else if (is_char_in_str(line[i], "01DNSWEnswe"))
+		else if (is_char_in_str(line[i], "01DNSWE"))
 			break ;
 		else
 			exit_with_message("invalid characters set in map");
@@ -61,9 +61,9 @@ static void	validate_map_line(t_info *info, char *line)
 	{
 		if (is_char_in_str(line[i], "NSWE"))
 			set_start_pos(info, line[i], i, info->map_height);
-		else if (is_char_in_str(line[i], "nswe"))
-			info->enemy_num++;
-		else if (is_char_in_str(line[i], "01 D"))
+		else if (is_char_in_str(line[i], "01 "))
+			;
+		else if (line[i] == 'D')
 			;
 		else
 			exit_with_message("characters other than map set");

@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:17:30 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 16:55:15 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 17:54:42 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		handle_key_release_action(int keycode, t_info *info);
 
 /* textures.c */
 void	input_texture(t_info *info, char *line);
+void	set_xpm_img(t_info *info, t_img *img, char *relative_path);
 
 /* map.c */
 void	input_map(t_info *info, t_circ_list **map_list, char *line);

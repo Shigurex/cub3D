@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:39:20 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 15:25:47 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/14 19:14:52 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_line(double *matrix, size_t line, size_t target)
 	l = target + 1;
 	while (l < line)
 	{
-///* test */if(matrix[target * line + target] == 0.0){E exit(1);}
+///* test */if(matrix[target * line + target] == 0.0){E exit(1);} // parallel
 			matrix[target * line + l] /= matrix[target * line + target];
 			l++;
 	}
