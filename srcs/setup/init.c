@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:51:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 21:08:01 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 21:59:48 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static void	init_textures(t_info *info)
 	info->textures.east.address = NULL;
 	info->textures.ceiling = TRANSPARENT;
 	info->textures.floor = TRANSPARENT;
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_1], "./imgs/arm00.xpm");
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_2], "./imgs/arm01.xpm");
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_3], "./imgs/arm02.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arm10.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arm11.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arm12.xpm");
-	set_xpm_img(info, &info->textures.door, "./imgs/door.xpm");
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_1], "./imgs/arms/arm00.xpm");
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_2], "./imgs/arms/arm01.xpm");
+	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_3], "./imgs/arms/arm02.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arms/arm10.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arms/arm11.xpm");
+	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arms/arm12.xpm");
+	set_xpm_img(info, &info->textures.door, "./imgs/textures/door.xpm");
 }
 
 static void	init_character(t_character *character)
