@@ -6,13 +6,12 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:56:06 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/15 23:14:33 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:42:40 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
-#include "debug.h"//------------------------test
 
 # include	<stdio.h>
 # include	<stdlib.h>

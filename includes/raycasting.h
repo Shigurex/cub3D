@@ -6,13 +6,12 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:48:39 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 17:32:18 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:42:37 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAYCASTING_H
 # define RAYCASTING_H
-#include "debug.h"//------------------------test
 
 # include	<math.h>
 # include	"define.h"

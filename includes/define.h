@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:46:24 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 17:53:29 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:44:44 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,8 +175,8 @@ typedef struct s_pos
 typedef struct s_character
 {
 	t_pos	pos;
-	double	yaw; //横(mapとかの表示用)
-	double	pitch; //縦(視野の上下用)
+	double	yaw;
+	double	pitch;
 	size_t	time;
 }	t_character;
 
@@ -195,7 +195,7 @@ typedef struct s_ray
 	t_axis		axis;
 	t_pos		pos;
 	t_direction	direction;
-	double		yaw; // absolute value
+	double		yaw;
 	double		distance;
 	int			row_win;
 }	t_ray;

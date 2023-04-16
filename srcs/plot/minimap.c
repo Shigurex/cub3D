@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:58:58 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/14 15:18:05 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:08:22 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 			&& pos.x <= info->player.pos.x + x_range)
 		&& (info->player.pos.y - y_range <= pos.y
 			&& pos.y <= info->player.pos.y + y_range))
+		return (BLACK);
+	else if (info->map[y][x].type == DOOR && \
+		((info->map[y][x].door_begin.x - x_range <= pos.x
+			&& pos.x <= info->map[y][x].door_end.x + x_range)
+		&& (info->map[y][x].door_begin.y - y_range <= pos.y
+			&& pos.y <= info->map[y][x].door_end.y + y_range)))
 		return (BLACK);
 	else if (((double)x - x_range <= pos.x && pos.x <= (double)x + x_range)
 		|| ((double)y - y_range <= pos.y && pos.y <= (double)y + y_range))

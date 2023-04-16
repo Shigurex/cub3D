@@ -6,26 +6,11 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:34:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 21:33:43 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:38:32 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include	"plot.h"
-
-double	time1 = 0;
-double	time2 = 0;
-bool test = false;
-/* test */	double	time_diff(void)
-/* test */	{
-/* test */		static long	p = {0};
-/* test */		long		n;
-/* test */		double	sec;
-/* test */
-/* test */		n = clock();
-/* test */		sec = (n - p) * 1.0 / CLOCKS_PER_SEC;
-/* test */		p = clock();
-/* test */		return (sec);
-/* test */	}
-
 
 static void	plot_line(t_info *info, t_ray *ray, int x)
 {
@@ -33,7 +18,8 @@ static void	plot_line(t_info *info, t_ray *ray, int x)
 	double	pic_l;
 	int		d;
 
-	pic_l = cos(((info->player.yaw - ray->yaw) / 180.0) * M_PI) * ray->distance * 2 * ray->img.height / 40 / 40;
+	pic_l = cos(((info->player.yaw - ray->yaw) / 180.0) * M_PI) \
+		* ray->distance * 2 * ray->img.height / 40 / 40;
 	d = WIN_HEIGHT / 2 - 1;
 	y = ray->img.height / 2 - MINI_NUM;
 	while (d >= 0)
@@ -62,36 +48,7 @@ static void	plot_line(t_info *info, t_ray *ray, int x)
 			my_pixel_put(&info->screens.base, x, d, info->textures.floor);
 		d++;
 	}
-
 }
-
-
-//static void	plot_line(t_info *info, t_ray *ray, int x)
-//{
-//	int		y;
-//	double	pitch;
-//	double	height;
-//
-//	y = 0;
-//	while (y < WIN_HEIGHT)
-//	{
-//		pitch = info->player.pitch + \
-//			((double)y - WIN_HEIGHT / 2) / WIN_HEIGHT * SIGHT_PITCH;
-//		height = 0.5 + ray->distance * \
-//			cos(degree_to_radian(ray->yaw - info->player.yaw)) * \
-//			tan(degree_to_radian(pitch));
-//		if (height < 0)
-//			my_pixel_put(&info->screens.base, x, y, info->textures.floor);
-//		else if (height > 1)
-//			my_pixel_put(&info->screens.base, x, y, info->textures.ceiling);
-//		else
-//			my_pixel_put(&info->screens.base, x, y, \
-//				my_pixel_get(&ray->img, \
-//				ray->img_col, \
-//				height * (ray->img.width - 1)));
-//		y++;
-//	}
-//}
 
 void	plot_base(t_info *info)
 {
@@ -106,7 +63,7 @@ void	plot_base(t_info *info)
 			(WIN_WIDTH / 2 - (double)x) / WIN_WIDTH * SIGHT_YAW;
 		ray = check_intersection(info, yaw);
 		ray.row_win = x;
-		plot_line(info, &ray, x);//なんか重い
+		plot_line(info, &ray, x);
 		x++;
 	}
 	mlx_put_image_to_window(info->mlx, info->win, \

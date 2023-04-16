@@ -6,13 +6,12 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 10:56:01 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/10 19:24:30 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:42:23 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-#include "debug.h"//------------------------test
 
 # include	"define.h"
 # include	"utils.h"

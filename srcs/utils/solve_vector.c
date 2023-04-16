@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 09:04:04 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/15 23:14:07 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:36:03 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,27 +46,27 @@ t_pos	va_p_svb_e_tvc(t_pos va, t_pos vb, t_pos vc)
 	matrix[4] = -vc.y;
 	matrix[5] = -va.y;
 	gaussian_elimination(matrix, 3, 2);
-	r.x = matrix[2]; //s
-	r.y = matrix[5]; //t
+	r.x = matrix[2];
+	r.y = matrix[5];
 	return (r);
 }
 
 t_direction	vector_to_8direction(t_pos v)
 {
-	double	gradient;
+	double	grad;
 
-	gradient = v.y / v.x;
-	if (gradient >= tan(-0.125 * M_PI) && gradient <= tan(0.125 * M_PI) && v.x >= 0)
+	grad = v.y / v.x;
+	if (grad >= tan(-0.125 * M_PI) && grad <= tan(0.125 * M_PI) && v.x >= 0)
 		return (EAST);
-	if (gradient >= tan(-0.125 * M_PI) && gradient <= tan(0.125 * M_PI) && v.x < 0)
+	if (grad >= tan(-0.125 * M_PI) && grad <= tan(0.125 * M_PI) && v.x < 0)
 		return (WEST);
-	if (gradient > tan(0.125 * M_PI) && gradient <= tan(0.375 * M_PI) && v.x >= 0)
+	if (grad > tan(0.125 * M_PI) && grad <= tan(0.375 * M_PI) && v.x >= 0)
 		return (NORTH_EAST);
-	if (gradient > tan(0.125 * M_PI) && gradient <= tan(0.375 * M_PI) && v.x < 0)
+	if (grad > tan(0.125 * M_PI) && grad <= tan(0.375 * M_PI) && v.x < 0)
 		return (SOUTH_WEST);
-	if (gradient < tan(-0.125 * M_PI) && gradient >= tan(-0.375 * M_PI) && v.x >= 0)
+	if (grad < tan(-0.125 * M_PI) && grad >= tan(-0.375 * M_PI) && v.x >= 0)
 		return (SOUTH_EAST);
-	if (gradient < tan(-0.125 * M_PI) && gradient >= tan(-0.375 * M_PI) && v.x < 0)
+	if (grad < tan(-0.125 * M_PI) && grad >= tan(-0.375 * M_PI) && v.x < 0)
 		return (NORTH_WEST);
 	if (v.y >= 0)
 		return (NORTH);
@@ -74,5 +74,3 @@ t_direction	vector_to_8direction(t_pos v)
 		return (SOUTH);
 	return (EAST);
 }
-
-

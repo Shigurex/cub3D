@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:26:50 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 17:54:27 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:41:49 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static void	input_xpm_img(t_info *info, char **split_line)
 	t_img	*xpm_img;
 
 	xpm_img = NULL;
-	if (!strcmp(split_line[0], "NO"))
+	if (!ft_strcmp(split_line[0], "NO"))
 		xpm_img = &info->textures.north;
-	else if (!strcmp(split_line[0], "SO"))
+	else if (!ft_strcmp(split_line[0], "SO"))
 		xpm_img = &info->textures.south;
-	else if (!strcmp(split_line[0], "WE"))
+	else if (!ft_strcmp(split_line[0], "WE"))
 		xpm_img = &info->textures.west;
-	else if (!strcmp(split_line[0], "EA"))
+	else if (!ft_strcmp(split_line[0], "EA"))
 		xpm_img = &info->textures.east;
 	else
 		exit_with_message("invalid format for contents set at the xpm image");
@@ -53,7 +53,7 @@ static int	atoi_color(char *str)
 	i = 0;
 	while (str[i] && i < 3)
 	{
-		if (!isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 			exit_with_message("invalid character used for color");
 		num = num * 10 + str[i] - '0';
 		if (num > 255)
@@ -78,9 +78,9 @@ static void	input_color(t_info *info, char **split_line)
 	red = atoi_color(colors[0]);
 	green = atoi_color(colors[1]);
 	blue = atoi_color(colors[2]);
-	if (!strcmp(split_line[0], "F"))
+	if (!ft_strcmp(split_line[0], "F"))
 		info->textures.floor = trgb_to_color(0, red, green, blue);
-	else if (!strcmp(split_line[0], "C"))
+	else if (!ft_strcmp(split_line[0], "C"))
 		info->textures.ceiling = trgb_to_color(0, red, green, blue);
 	else
 		exit_with_message("invalid format for contents set at the color");
@@ -100,10 +100,10 @@ void	input_texture(t_info *info, char *line)
 	size = count_split_size(split_line);
 	if (size != 2)
 		exit_with_message("invalid format for contents set at the map");
-	if (!strcmp(split_line[0], "NO") || !strcmp(split_line[0], "SO")
-		|| !strcmp(split_line[0], "WE") || !strcmp(split_line[0], "EA"))
+	if (!ft_strcmp(split_line[0], "NO") || !ft_strcmp(split_line[0], "SO")
+		|| !ft_strcmp(split_line[0], "WE") || !ft_strcmp(split_line[0], "EA"))
 		input_xpm_img(info, split_line);
-	else if (!strcmp(split_line[0], "F") || !strcmp(split_line[0], "C"))
+	else if (!ft_strcmp(split_line[0], "F") || !ft_strcmp(split_line[0], "C"))
 		input_color(info, split_line);
 	else
 		exit_with_message("invalid format for contents set at the map");

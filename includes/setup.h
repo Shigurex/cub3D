@@ -6,13 +6,12 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:17:30 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/16 17:54:42 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/16 18:42:33 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SETUP_H
 # define SETUP_H
-#include "debug.h"//------------------------test
 
 # include	<fcntl.h>
 # include	"define.h"
