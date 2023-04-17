@@ -12,12 +12,6 @@
 
 #include	"cub3D.h"
 
-// __attribute__((destructor))
-// static void	end()
-// {
-// 	system("leaks -q cub3D");
-// }
-
 int	main(int argc, char **argv)
 {
 	t_info	info;
