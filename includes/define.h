@@ -18,8 +18,6 @@
 # include	"../minilibx_mms_20200219/mlx.h"
 # include	"../libft/libft.h"
 
-# define MINI_NUM 0.000000000000001
-
 /* window */
 # define WIN_WIDTH 1200
 # define WIN_HEIGHT 900
@@ -160,6 +158,7 @@ typedef struct s_texture
 	unsigned int	floor;
 	t_img			door;
 	t_img			arms[ARMS];
+	t_img			start;
 }	t_texture;
 
 typedef struct s_screen

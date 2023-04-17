@@ -26,7 +26,8 @@ static void	init_textures(t_info *info)
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arms/arm10.xpm");
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arms/arm11.xpm");
 	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arms/arm12.xpm");
-	set_xpm_img(info, &info->textures.door, "./imgs/textures/door.xpm");
+	set_xpm_img(info, &info->textures.door, "./imgs/textures/iron_door.xpm");
+	set_xpm_img(info, &info->textures.start, "./imgs/textures/op.xpm");
 }
 
 static void	init_character(t_character *character)

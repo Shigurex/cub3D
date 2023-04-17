@@ -1,7 +1,7 @@
-NO ./imgs/textures/wall.xpm
-SO ./imgs/textures/floor.xpm
-WE ./imgs/textures/soil.xpm
-EA ./imgs/textures/ston.xpm
+NO ./imgs/textures/chiseled_stone_bricks.xpm
+SO ./imgs/textures/cobblestone.xpm
+WE ./imgs/textures/mossy_stone_bricks.xpm
+EA ./imgs/textures/stone_bricks.xpm
 
 F 91,41,31
 C 167,231,255

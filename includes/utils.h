@@ -19,6 +19,8 @@
 # include	<stddef.h>
 # include	"define.h"
 
+# define MINI_NUM 0.000000000000001
+
 /* exit.c */
 void			exit_with_message(char *message);
 

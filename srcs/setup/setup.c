@@ -28,6 +28,7 @@ int	close_window(t_info *info)
 	mlx_destroy_image(info->mlx, info->textures.arms[LEFT_ARM_2].address);
 	mlx_destroy_image(info->mlx, info->textures.arms[LEFT_ARM_3].address);
 	mlx_destroy_image(info->mlx, info->textures.door.address);
+	mlx_destroy_image(info->mlx, info->textures.start.address);
 	mlx_destroy_window(info->mlx, info->win);
 	exit(EXIT_SUCCESS);
 }

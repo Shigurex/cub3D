@@ -15,7 +15,8 @@
 int	plot_screen(t_info *info)
 {
 	if (!(info->keys & START))
-		return (1);
+		return (mlx_put_image_to_window(info->mlx, info->win, \
+		info->textures.start.address, 0, 0) * 0 + 1);
 	move_view(info);
 	move_direction(info);
 	plot_base(info);
