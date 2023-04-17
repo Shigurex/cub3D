@@ -6,7 +6,7 @@
 /*   By: yahokari <yahokari@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:29:28 by yahokari          #+#    #+#             */
-/*   Updated: 2023/04/17 00:04:09 by yahokari         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:00:02 by yahokari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	handle_key_press_action(int keycode, t_info *info)
 		info->keys |= MOVE_RIGHT;
 	else if (keycode == KEY_ENTER)
 		info->keys |= START;
+	if (keycode == KEY_ENTER)
+		mlx_mouse_move(info->win, WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	return (0);
 }
 
