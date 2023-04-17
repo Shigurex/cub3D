@@ -18,7 +18,7 @@ static void	sort_matrix(double *matrix, size_t line, size_t row, size_t target)
 {
 	size_t	r;
 	size_t	l;
-	double buf;
+	double	buf;
 
 	r = target;
 	while (r < row && fabs(matrix[r * line + target]) < 0.00001)

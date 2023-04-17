@@ -35,10 +35,10 @@ static t_ray	check_horizontal_intersection(t_info *info, double angle)
 		ray.type = block.type;
 		if (block.type == WALL || block.type == NONE || block.type == MAP_ERROR
 			|| (block.type == DOOR && is_door_hit(info, &ray, block)))
-			break ;
-		ray.pos = assign_pos(ray.pos.x + sign * 1 / tan(angle), ray.pos.y + sign);
+			return (ray);
+		ray.pos = assign_pos(\
+		ray.pos.x + sign * 1 / tan(angle), ray.pos.y + sign);
 	}
-	return (ray);
 }
 
 static t_ray	check_vertical_intersection(t_info *info, double angle)
@@ -65,10 +65,9 @@ static t_ray	check_vertical_intersection(t_info *info, double angle)
 		ray.type = block.type;
 		if (block.type == WALL || block.type == NONE || block.type == MAP_ERROR
 			|| (block.type == DOOR && is_door_hit(info, &ray, block)))
-			break ;
+			return (ray);
 		ray.pos = assign_pos(ray.pos.x + sign, ray.pos.y + sign * tan(angle));
 	}
-	return (ray);
 }
 
 static int	calculate_img_col(t_img img, t_direction direction, t_pos pos)
@@ -81,6 +80,20 @@ static int	calculate_img_col(t_img img, t_direction direction, t_pos pos)
 		return ((pos.y - floor(pos.y)) * (img.width - 1));
 	else
 		return ((floor(pos.y + 1) - pos.y) * (img.width - 1));
+}
+
+static t_ray	check_intersection1(\
+t_info *info, double angle, t_ray *ray, double angle_radian)
+{
+	ray->distance = calculate_distance(info->player.pos, ray->pos);
+	ray->yaw = angle;
+	ray->direction = get_wall_direction(angle_radian, ray->axis);
+	if (ray->type == DOOR)
+		ray->img = info->textures.door;
+	else
+		ray->img = get_wall_img(info, ray->direction);
+	ray->img_col = calculate_img_col(ray->img, ray->direction, ray->pos);
+	return (*ray);
 }
 
 t_ray	check_intersection(t_info *info, double angle)
@@ -104,13 +117,5 @@ t_ray	check_intersection(t_info *info, double angle)
 		ray.pos = horizontal_ray.pos;
 		ray.type = horizontal_ray.type;
 	}
-	ray.distance = calculate_distance(info->player.pos, ray.pos);
-	ray.yaw = angle;
-	ray.direction = get_wall_direction(angle_radian, ray.axis);
-	if (ray.type == DOOR)
-		ray.img = info->textures.door;
-	else
-		ray.img = get_wall_img(info, ray.direction);
-	ray.img_col = calculate_img_col(ray.img, ray.direction, ray.pos);
-	return (ray);
+	return (check_intersection1(info, angle, &ray, angle_radian));
 }

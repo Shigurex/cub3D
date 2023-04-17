@@ -11,6 +11,12 @@
 /* ************************************************************************** */
 
 #include	"setup.h"
+#define RA1 RIGHT_ARM_1
+#define RA2 RIGHT_ARM_2
+#define RA3 RIGHT_ARM_3
+#define LA1 LEFT_ARM_1
+#define LA2 LEFT_ARM_2
+#define LA3 LEFT_ARM_3
 
 static void	init_textures(t_info *info)
 {
@@ -20,12 +26,12 @@ static void	init_textures(t_info *info)
 	info->textures.east.address = NULL;
 	info->textures.ceiling = TRANSPARENT;
 	info->textures.floor = TRANSPARENT;
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_1], "./imgs/arms/arm00.xpm");
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_2], "./imgs/arms/arm01.xpm");
-	set_xpm_img(info, &info->textures.arms[RIGHT_ARM_3], "./imgs/arms/arm02.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_1], "./imgs/arms/arm10.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_2], "./imgs/arms/arm11.xpm");
-	set_xpm_img(info, &info->textures.arms[LEFT_ARM_3], "./imgs/arms/arm12.xpm");
+	set_xpm_img(info, &info->textures.arms[RA1], "./imgs/arms/arm00.xpm");
+	set_xpm_img(info, &info->textures.arms[RA2], "./imgs/arms/arm01.xpm");
+	set_xpm_img(info, &info->textures.arms[RA3], "./imgs/arms/arm02.xpm");
+	set_xpm_img(info, &info->textures.arms[LA1], "./imgs/arms/arm10.xpm");
+	set_xpm_img(info, &info->textures.arms[LA2], "./imgs/arms/arm11.xpm");
+	set_xpm_img(info, &info->textures.arms[LA3], "./imgs/arms/arm12.xpm");
 	set_xpm_img(info, &info->textures.door, "./imgs/textures/iron_door.xpm");
 	set_xpm_img(info, &info->textures.start, "./imgs/textures/op.xpm");
 }

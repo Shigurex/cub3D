@@ -21,7 +21,7 @@ bool	is_door_hit(t_info *info, t_ray *ray, t_block block)
 
 	va = va_m_vb(block.door_begin, info->player.pos);
 	vb = va_m_vb(block.door_end, block.door_begin);
-	vb.x += 0.000001; // could be modified
+	vb.x += 0.000001;
 	vc = va_m_vb(ray->pos, info->player.pos);
 	r = va_p_svb_e_tvc(va, vb, vc);
 	if (r.x < 0 || 1 < r.x || r.y < 0)

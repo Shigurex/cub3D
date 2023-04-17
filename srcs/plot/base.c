@@ -12,7 +12,31 @@
 
 #include	"plot.h"
 
-static void	plot_line(t_info *info, t_ray *ray, int x)
+static void	plot_line_up(t_info *info, t_ray *ray, int x)
+{
+	double	y;
+	double	pic_l;
+	int		d;
+
+	pic_l = cos(((info->player.yaw - ray->yaw) / 180.0) * M_PI) \
+		* ray->distance * 2 * ray->img.height / 40 / 40;
+	d = WIN_HEIGHT / 2;
+	y = ray->img.height / 2;
+	while (d < WIN_HEIGHT)
+	{
+		if (y < ray->img.height)
+		{
+			my_pixel_put(&info->screens.base, x, d, my_pixel_get(&ray->img, \
+				ray->img_col, (int)floor(y)));
+			y += pic_l;
+		}
+		else
+			my_pixel_put(&info->screens.base, x, d, info->textures.floor);
+		d++;
+	}
+}
+
+static void	plot_line_dowun(t_info *info, t_ray *ray, int x)
 {
 	double	y;
 	double	pic_l;
@@ -34,20 +58,12 @@ static void	plot_line(t_info *info, t_ray *ray, int x)
 			my_pixel_put(&info->screens.base, x, d, info->textures.ceiling);
 		d--;
 	}
-	d = WIN_HEIGHT / 2;
-	y = ray->img.height / 2;
-	while (d < WIN_HEIGHT)
-	{
-		if (y < ray->img.height)
-		{
-			my_pixel_put(&info->screens.base, x, d, my_pixel_get(&ray->img, \
-				ray->img_col, (int)floor(y)));
-			y += pic_l;
-		}
-		else
-			my_pixel_put(&info->screens.base, x, d, info->textures.floor);
-		d++;
-	}
+}
+
+static void	plot_line(t_info *info, t_ray *ray, int x)
+{
+	plot_line_up(info, ray, x);
+	plot_line_dowun(info, ray, x);
 }
 
 void	plot_base(t_info *info)

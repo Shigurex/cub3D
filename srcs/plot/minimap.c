@@ -24,6 +24,31 @@ static t_pos	get_minimap_pos_from_ratio(t_info *info, \
 	return (pos);
 }
 
+static unsigned int	get_color_of_minimap_pos_1(t_info *info, t_pos pos)
+{
+	int		x;
+	int		y;
+	double	x_range;
+	double	y_range;
+
+	x = floor(pos.x);
+	y = floor(pos.y);
+	x_range = (double)MINIMAP_SIZE / MINIMAP_WIDTH;
+	y_range = (double)MINIMAP_SIZE / MINIMAP_HEIGHT;
+	if (info->map[y][x].type == DOOR && \
+		((info->map[y][x].door_begin.x - x_range <= pos.x
+			&& pos.x <= info->map[y][x].door_end.x + x_range)
+		&& (info->map[y][x].door_begin.y - y_range <= pos.y
+			&& pos.y <= info->map[y][x].door_end.y + y_range)))
+		return (BLACK);
+	else if (((double)x - x_range <= pos.x && pos.x <= (double)x + x_range)
+		|| ((double)y - y_range <= pos.y && pos.y <= (double)y + y_range))
+		return (BLACK);
+	else if (info->map[y][x].type == WALL)
+		return (GRAY);
+	return (WHITE);
+}
+
 static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 {
 	int		x;
@@ -45,18 +70,8 @@ static unsigned int	get_color_of_minimap_pos(t_info *info, t_pos pos)
 		&& (info->player.pos.y - y_range <= pos.y
 			&& pos.y <= info->player.pos.y + y_range))
 		return (BLACK);
-	else if (info->map[y][x].type == DOOR && \
-		((info->map[y][x].door_begin.x - x_range <= pos.x
-			&& pos.x <= info->map[y][x].door_end.x + x_range)
-		&& (info->map[y][x].door_begin.y - y_range <= pos.y
-			&& pos.y <= info->map[y][x].door_end.y + y_range)))
-		return (BLACK);
-	else if (((double)x - x_range <= pos.x && pos.x <= (double)x + x_range)
-		|| ((double)y - y_range <= pos.y && pos.y <= (double)y + y_range))
-		return (BLACK);
-	else if (info->map[y][x].type == WALL)
-		return (GRAY);
-	return (WHITE);
+	else
+		return (get_color_of_minimap_pos_1(info, pos));
 }
 
 void	plot_minimap(t_info *info)
